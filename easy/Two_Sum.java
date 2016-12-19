@@ -1,5 +1,11 @@
 /*************************************************************************
-	> File Name: Some implementations of Arrays and HashTable.
+	> Function: Given an array of integers, return indices of the two numbers 
+    > such that they add up to a specific target.
+    > 
+    > Example:  Given nums = [2, 7, 11, 15], target = 9,
+                Because nums[0] + nums[1] = 2 + 7 = 9,
+                return [0, 1].
+    >
 	> Author: Jinglong Guo
 	> Created Time: Sun Dec 18 19:59:27 2016
  ************************************************************************/
@@ -7,7 +13,7 @@
 /**
  * Approach #1 (Brute Force) 
  * running time complexity: O(n^2)
- * My method. 
+ * jinglong's method. 
  */
 public class Solution {
     public int[] twoSum(int[] nums, int target) {
@@ -35,7 +41,7 @@ public class Solution {
             map.put(nums[i], i);
         }
         // check if the other element is in the map. Searching an element in hashtable takes 
-        // amortized O(1)O(1) time.
+        // amortized O(1) time.
         for (int j = 0; j < nums.length; j++) {
             int temp = target - nums[j];
             if (map.containsKey(temp) && map.get(temp) != j) {
