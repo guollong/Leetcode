@@ -9,6 +9,8 @@
  * Date: 03/26/2017
  */
 
+// 很糟糕的是：第二次写这道题目的时候忘记了怎么写。。。。。。
+
 // Some regulations of roman numbers.
 // Symbol	I	V	X	L	C	D	M
 // Value	1	5	10	50	100	500	1,000
