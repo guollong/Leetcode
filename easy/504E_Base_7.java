@@ -9,6 +9,7 @@
  * Author: Jinglong Guo
  * Difficulty: Easy; Company: .
  * Date: 03/25/2017
+ * Modified date: 05/29/2017
  */
 
 // 注意事项：corner case： num为0, 考虑正负数。
@@ -17,28 +18,15 @@ public class Solution {
         if (num == 0) {
             return "0";
         }
-        StringBuilder base7 = new StringBuilder();
-        boolean isPositive = true;
-        if (num < 0) {
-            isPositive = false;
-            num = -num;
-        }
-        int temp = num;
-        int quotient = num;
-        int remainder = num;
-
+        StringBuilder output = new StringBuilder();
+        int temp = Math.abs(num);
         while (temp != 0) {
-            quotient = temp / 7;
-            remainder = temp % 7;
-            base7.append(remainder);
-            temp = quotient;
+            output.append(temp % 7);
+            temp = temp / 7;
         }
-        if (isPositive) {
-            return base7.reverse().toString();
-        } else {
-            base7.append('-');
-            return base7.reverse().toString();
+        if (num < 0) {
+            output.append('-');
         }
+        return output.reverse().toString();
     }
 }
-
