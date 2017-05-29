@@ -6,6 +6,25 @@
  *     ListNode(int x) { val = x; }
  * }
  */
+
+// My solution: store the values of nodes in an array and inverse the value of nodes.
+public class Solution {
+    public ListNode reverseList(ListNode head) {
+        List<Integer> values = new ArrayList<>();
+        ListNode temp = head;
+        while (temp != null) {
+            values.add(temp.val);
+            temp = temp.next;
+        }
+        temp = head;
+        for (int i = values.size() - 1; i >= 0; i--) {
+            temp.val = values.get(i);
+            temp = temp.next;
+        }
+        return head;
+    }
+}
+
  /**
   * Top solution: Iterative method.
   * Intitally, newHead is null.After each iteration, newHead becomes current head.
