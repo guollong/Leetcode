@@ -4,20 +4,47 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: .
  * Date: 03/02/2017
  */
 
-// 异或可以抵消两个相同的数。
+
+/**
+ * Progress...
+ * Create Date: 03/02/2017
+ * Update Date 1: 05/30/2017
+ */
+
+// Method 1: bit manipulation.
 public class Solution {
     public int singleNumber(int[] nums) {
-        if (nums.length == 0) {
-            return 0;
+        int res = 0;
+        for (int i = 0; i < nums.length; i++) {
+            res ^= nums[i];
         }
-        int result = nums[0];
-        for (int i = 1; i < nums.length; i++) {
-            result ^= nums[i];
-        }
-        return result;
+        return res;
     }
 }
+
+// Method 2: Arrays.sort(nums)
+public class Solution {
+    public int singleNumber(int[] nums) {
+        Arrays.sort(nums);
+        int sum = nums[0];
+        int length = nums.length;
+        for (int i = 1; i < length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                nums[i] = -nums[i];
+            }
+            sum += nums[i];
+        }
+        return sum;
+    }
+}
+
+// Method 3: HashMap (不好)
+
+
+
+
