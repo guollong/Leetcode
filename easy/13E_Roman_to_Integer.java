@@ -26,6 +26,7 @@
         Number	    4	9	40	90	400	900
         Notation	IV	IX	XL	XC	CD	CM
  * (4). 在一个数的上面画横线，表示这个数扩大1000倍（本题只考虑3999以内的数，所以用不到这条规则）
+ * (5). Examples: XIII: 8; MCMIV: 1904; IV: 4;
  */
 
 /**
