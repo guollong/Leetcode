@@ -5,33 +5,46 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 03/26/2017
+ * Difficulty: Easy; 
+ * Company: Microsoft, Bloomberg, Uber, Facebook, Yahoo.
  */
 
-// 很糟糕的是：第二次写这道题目的时候忘记了怎么写。。。。。。
+/**
+ * Progress......
+ * Create date: 03/26/2017
+ * Update Date 1: 05/30/2017 (problem: Don't know the rules and forget the solution)
+ */
 
-// Some regulations of roman numbers.
-// Symbol	I	V	X	L	C	D	M
-// Value	1	5	10	50	100	500	1,000
-// 计数规则：
-//      相同的数字连写，所表示的数等于这些数字相加得到的数，例如：III = 3
-//      小的数字在大的数字右边，所表示的数等于这些数字相加得到的数，例如：VIII = 8
-//      小的数字，限于（I、X和C）在大的数字左边，所表示的数等于大数减去小数所得的数，例如：IV = 4
-//      正常使用时，连续的数字重复不得超过三次
-//      在一个数的上面画横线，表示这个数扩大1000倍（本题只考虑3999以内的数，所以用不到这条规则
+/**
+ * Rules: 
+ * (1). Basic symbol values:
+        Symbol	I	V	X	L	C	D	M
+        Value   1	5	10	50	100	500	1,000
+ * (2). Symbols are placed from left to right in order of value, starting with the largest.
+ * (3). In a few specific cases, to avoid confusing and hard to read numbers with four characters 
+        repeated in succession (such as IIII or XXXX), subtractive notation is used:
+        Number	    4	9	40	90	400	900
+        Notation	IV	IX	XL	XC	CD	CM
+ * (4). 在一个数的上面画横线，表示这个数扩大1000倍（本题只考虑3999以内的数，所以用不到这条规则）
+ */
+
+/**
+ * Methodology:
+ * (1). Create a switch case table to look up the value of different symbols.
+ * (2). Loop over the input roman number, add symbol value to the output integer. However, if the
+ *      previous symbol is 'I', 'X' or 'C' and the cooresponding value of the previous symbol is 
+ *      smaller than the current symbol, substract double value of the previous symbol.
+ */
 
 public class Solution {
     public int romanToInt(String s) {
-        
-        char[] romanArray = s.toCharArray();
-        int sum = getInt(romanArray[0]);
+        char[] sArray = s.toCharArray();
+        int sum = getInt(sArray[0]);
         for (int i = 1; i < s.length(); i++) {
-            char temp = romanArray[i - 1];
-            if ((temp == 'I' || temp == 'X' || temp == 'C') && getInt(romanArray[i]) > getInt(temp)) {
-                sum = sum + getInt(romanArray[i]) - 2 * getInt(temp);
-            } else {
-                sum += getInt(romanArray[i]);
+            sum += getInt(sArray[i]);
+            char pre = sArray[i - 1];
+            if ((pre == 'I' || pre == 'X' || pre == 'C') && getInt(pre) < getInt(sArray[i])) {
+                sum -= 2 * getInt(pre);
             }
         }
         return sum;
