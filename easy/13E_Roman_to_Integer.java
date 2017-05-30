@@ -12,7 +12,8 @@
 /**
  * Progress......
  * Create date: 03/26/2017
- * Update Date 1: 05/30/2017 (problem: Don't know the rules and forget the solution)
+ * Update Date 1: 05/30/2017 (final version)
+ *      (problem: Don't know the rules and forget the solution)
  */
 
 /**
