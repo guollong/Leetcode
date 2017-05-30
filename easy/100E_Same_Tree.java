@@ -5,8 +5,23 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 03/25/2017
+ * Difficulty: Easy; 
+ * Company: .
+ */
+
+/**
+ * Progress...
+ * Create Date: 03/25/2017
+ * Update Date: 05/30/2017 (final version)
+ */
+
+/**
+ * Methodology: (recursion)
+ * base case: 
+       If two nodes are null, return true;
+       If one of the nodes is null or the value of two nodes are different, return false;
+ * recursive case:
+       Return isSameTree(left, left) && isSameTree(right, right).
  */
 
 /**
@@ -19,18 +34,20 @@
  * }
  */
 
-// recursive method.
 public class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
+        // base case.
         if (p == null && q == null) {
             return true;
         }
         if (p == null || q == null) {
             return false;
         }
-        if (p.val == q.val) {
-            return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+        if (p.val != q.val) {
+            return false;
         }
-        return false;
+        
+        // recursive case.
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
 }
