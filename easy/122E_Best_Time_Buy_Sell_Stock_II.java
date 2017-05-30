@@ -3,11 +3,12 @@
  * 		Design an algorithm to find the maximum profit. You may complete as many transactions as you like
  *		(ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple 
  * 		transactions at the same time (ie, you must sell the stock before you buy again).
+ * Note: Just get the max profit, the times of transactions do not matter.
  */
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Company: .
  * Date: 03/25/2017
  */
 
@@ -17,34 +18,33 @@
 // 		 So, we start from recording the first valley and get the profits every buy and sell.
 public class Solution {
     public int maxProfit(int[] prices) {
-        int low = 0; 		// valley.
-        int high = 0;		// peak.
-        int max = 0;		// max profit.
-        int index = 0;
-        while (index < prices.length - 1) {
-            while (index < prices.length - 1 && prices[index + 1] <= prices[index]) {
-                index++;
+        int profit = 0;
+        int lowPointer = 1;
+        int highPointer = 1;
+        while (lowPointer < prices.length && highPointer < prices.length) {
+            while (lowPointer < prices.length && prices[lowPointer] <= prices[lowPointer - 1]) {
+                lowPointer++;
             }
-            low = index;
-            while (index < prices.length - 1 && prices[index + 1] >= prices[index]) {
-                index++;
+            highPointer = lowPointer;
+            while (highPointer < prices.length && prices[highPointer] >= prices[highPointer - 1]) {
+                highPointer++;
             }
-            high = index;
-            max = max + prices[high] - prices[low];
+            profit += (prices[highPointer - 1] - prices[lowPointer - 1]);
+            lowPointer = highPointer;
         }
-        return max;
+        return profit;
     }
 }
 
 // Approach 2: 将所有的增长累加起来就是max收益。
-class Solution {
+public class Solution {
     public int maxProfit(int[] prices) {
-        int max = 0;
-        for (int i = 0; i < prices.length - 1; i++) {
-            if (prices[i + 1] > prices[i]) {
-                max += prices[i + 1] - prices[i];
+        int profit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                profit += (prices[i] - prices[i - 1]);
             }
         }
-        return max;
+        return profit;
     }
 }
