@@ -10,13 +10,13 @@
  * Date: 03/25/2017
  */
 
+// 貌似从char array中取元素比从string中charAt的效率高，有待验证。。。
 public class Solution {
     public int titleToNumber(String s) {
         int sum = 0;
-        int length = s.length();
-        char[] title = s.toCharArray();
-        for (int i = 0; i < length; i++) {
-            sum = sum * 26 + title[i] - 65 + 1;
+        char[] sArray = s.toCharArray();
+        for (int i = 0; i < s.length(); i++) {
+            sum = sum * 26 + sArray[i] - 'A' + 1;
         }
         return sum;
     }
