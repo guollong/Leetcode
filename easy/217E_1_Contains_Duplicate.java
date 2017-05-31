@@ -9,6 +9,7 @@
  * Date: 03/25/2017
  */
 
+// 虽然running time complexity is O()
 public class Solution {
     public boolean containsDuplicate(int[] nums) {
         if (nums.length == 0 || nums.length == 1) {
