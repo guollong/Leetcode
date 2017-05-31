@@ -11,39 +11,44 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: .
  * Date: 03/02/2017
  */
 
-// First version.
-// USE hashmap to store the characters in original string.
+// Approaches: sort and compare, bit manipulation(xor), Other approaches.
+
+// Approach 1: bit manipulation(xor) (better solution)
+// Similar to the question that finding the the single number
 public class Solution {
     public char findTheDifference(String s, String t) {
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        char res = t.charAt(t.length() - 1);
         for (int i = 0; i < s.length(); i++) {
-            Character c = s.charAt(i);
-            if (map.get(c) == null) {
-                map.put(c, 1);
-            } else {
-                map.put(c, map.get(c) + 1);
-            }
+            res ^= s.charAt(i);
+            res ^= t.charAt(i);
         }
-        for (int i = 0; i < t.length(); i++) {
-            Character c = t.charAt(i);
-            if (!map.containsKey(c)) {
-                return c;
-            }
-            if (map.get(c) == 1) {
-                map.remove(c);
-            } else {
-                map.put(c, map.get(c) - 1);
-            }
-        }
-        return '\0';
+        return res;
     }
 }
 
-// Second version.
+// Approach 2: sort and compare
+public class Solution {
+    public char findTheDifference(String s, String t) {
+        char[] charS = s.toCharArray();
+        char[] charT = t.toCharArray();
+        Arrays.sort(charS);
+        Arrays.sort(charT);
+        int i = 0;
+        for (i = 0; i < s.length(); i++) {
+            if (charS[i] != charT[i]) {
+                return charT[i];
+            }
+        }
+        return charT[i];
+    }
+}
+
+// Approach 3: ascii sum.
 // Use for loop to sum the ascii of characters in original string.
 public class Solution {
     public char findTheDifference(String s, String t) {
@@ -60,9 +65,7 @@ public class Solution {
     }
 }
 
-// Third version.
-// similar to the second version, but combine two for loops together 
-// and move the defination of the local variables outside the loop.
+// Improved approach 3.
 public class Solution {
     public char findTheDifference(String s, String t) {
         int sum = 0, j = 0, i = 0;
@@ -74,9 +77,7 @@ public class Solution {
             sum += (int) c_s;
             sum -= (int) c_t;
         }
-        for (; j < t.length(); j++) {
-            sum -= t.charAt(j);
-        }
+        sum -= t.charAt(j);
         return (char) -sum;
     }
 }
