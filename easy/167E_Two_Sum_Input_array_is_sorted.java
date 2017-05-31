@@ -8,11 +8,13 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: .
  * Date: 03/11/2017
+ * Update date: 05/31/2017
  */
 
-// solution from discussion. (Use two pointers)
+// Two pointers: most effective.
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
         int length = numbers.length;
@@ -33,32 +35,17 @@ public class Solution {
     }
 }
 
-// my original solution. (use hashmap: not good)
+// HashMap
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
         Map<Integer, Integer> map = new HashMap<>();
-        int[] index = new int[2];
-        int length = numbers.length;
-        for (int i = 0; i < length; i++) {
-            int value = map.getOrDefault(numbers[i], 0) + 1;
-            map.put(numbers[i], value);
-        }
-        int index1 = 0, value1 = 0, index2 = 0;
-        for (index1 = 0; index1 < length; index1++) {
-            value1 = numbers[index1];
-            if (map.containsKey(target - value1)) {
-                break;
+        for (int i = 0; i < numbers.length; i++) {
+            if (map.containsKey(target - numbers[i])) {
+                return new int[]{map.get(target - numbers[i]) + 1, i + 1};
             }
+            map.put(numbers[i], i);
         }
-        index[0] = index1 + 1;
-        for (index1 = index1 + 1; index1 < length; index1++) {
-            if (numbers[index1] == target - value1) {
-                index2 = index1;
-                break;
-            }
-        }
-        index[1] = index2 + 1;
-        return index;
+        return new int[]{};
     }
 }
 
