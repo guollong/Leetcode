@@ -14,7 +14,8 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: .
  * Date: 03/09/2017
  */
 
@@ -28,16 +29,14 @@
  * }
  */
 
-// DFS solution in discussion.
 public class Solution {
     public TreeNode invertTree(TreeNode root) {
         if (root == null) {
             return null;
         }
-        TreeNode left = root.left;
-        TreeNode right = root.right;
-        root.left = invertTree(right);
-        root.right = invertTree(left);
+        TreeNode temp = root.left;
+        root.left = invertTree(root.right);
+        root.right = invertTree(temp);
         return root;
     }
 }
