@@ -8,8 +8,7 @@
  ************************************************************************/
 
 /**
- * running time complexity: O(n)
- * jinglong's method. 
+ * Approach 1: two hashsets (running time complexity: O(n))
  */
 public class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
@@ -33,32 +32,36 @@ public class Solution {
     }
 }
 
-/**
- * running time complexity: O(nlogn) (take the time complexity of the sort method)
- * one of the methods. 
+/** (The fact is this one is more effective than approach 1.)
+ * Approach 2: Sort and compare (Running time complexity: O(nlogn))
+ * Notes: We sometimes store the result in a list and need to convert it to the array.
+ * 	e.g. String[] result = list.toArray(new String[list.size()]);
+ * 	However, this only works for arrays of reference types. For arrays of primitive
+ *	types, use the traditional way.
  */
 public class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
         Set<Integer> set = new HashSet<>();
         Arrays.sort(nums1);
         Arrays.sort(nums2);
-        int i = 0;
-        int j = 0;
-        while (i < nums1.length && j < nums2.length) {
-            if (nums1[i] < nums2[j]) {
-                i++;
-            } else if (nums1[i] > nums2[j]) {
-                j++;
+        int pointer1 = 0;
+        int pointer2 = 0;
+        while (pointer1 < nums1.length && pointer2 < nums2.length) {
+            if (nums1[pointer1] < nums2[pointer2]) {
+                pointer1++;
+            } else if (nums1[pointer1] > nums2[pointer2]) {
+                pointer2++;
             } else {
-                set.add(nums1[i]);
-                i++;
-                j++;
+                set.add(nums1[pointer1]);
+                pointer1++;
+                pointer2++;
             }
         }
+	   
         int[] result = new int[set.size()];
-        int k = 0;
-        for (Integer num : set) {
-            result[k++] = num;
+        int index = 0;
+        for (Integer element : set) {
+            result[index++] = element;
         }
         return result;
     }
