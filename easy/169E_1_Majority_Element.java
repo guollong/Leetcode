@@ -8,22 +8,26 @@
  * Author: Jinglong Guo
  * Difficulty: Easy; 
  * Company: .
- * Date: 03/25/2017
+ * Create Date: 03/25/2017
  * Update date: 05/31/2017
  */
 
 // Approach 1: Boyer–Moore majority vote algorithm. It is an algorithm for finding 
 //      the majority of a sequence of elements using linear time and constant space.
+// step1: If the counter is 0, we set the current candidate to e and we set the counter to 1.
+// step2: If the counter is not 0, we increment or decrement the counter according to whether e is the current candidate.
 public class Solution{
     public int majorityElement(int[] nums) {
         int count = 0, returnValue = 0;
         for (int num : nums) {
-            if (count == 0)
+            if (count == 0) {
                 returnValue = num;
-            if (num != returnValue)
-                count--;
-            else
+                count = 1;
+            } else if (num == returnValue){
                 count++;
+            } else {
+                count--;
+            }  
         }
         return returnValue;
     }
