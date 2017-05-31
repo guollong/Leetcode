@@ -1,4 +1,20 @@
 /**
+ * Question description: Reverse a singly linked list.
+ */
+
+/**
+ * Author: Jinglong Guo
+ * Difficulty: Easy; 
+ * Company: .
+ */
+
+/**
+ * Progress...
+ * Create Date: 03/25/2017
+ * Update Date: 05/31/2017
+ */
+
+/**
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
