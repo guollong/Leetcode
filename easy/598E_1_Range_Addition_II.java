@@ -11,7 +11,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: IXL.
  */
 
 /**
