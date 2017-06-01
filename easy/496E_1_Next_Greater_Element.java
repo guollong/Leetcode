@@ -12,7 +12,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: 暂时无.
  * Date: 02/24/2017
  */
 public class Solution {
