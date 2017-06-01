@@ -6,7 +6,8 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: MicroSoft, Uber.
  * Date: 03/25/2017
  */
 
