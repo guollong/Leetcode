@@ -13,7 +13,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Cloudera.
  * Date: 02/24/2017
  */
 
