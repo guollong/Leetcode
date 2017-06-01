@@ -15,7 +15,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: 暂时无.
  * Date: 03/13/2017
  */
 
