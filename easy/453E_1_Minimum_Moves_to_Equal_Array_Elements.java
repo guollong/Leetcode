@@ -11,7 +11,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Indeed, Coursera.
  * Create Date: 03/13/2017
  * Update date: 06/01/2017
  */
