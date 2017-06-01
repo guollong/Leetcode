@@ -9,7 +9,8 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: .
  * Date: 03/27/2017
  */
 
@@ -22,19 +23,18 @@ public class Solution {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < points.length; i++) {
             for (int j = 0; j < points.length; j++) {
-                if (i == j) {
-                    continue;
-                }
-                int tempDistance = distance(points[i], points[j]);
-                if (map.get(tempDistance) != null) {
-                    map.put(tempDistance, map.get(tempDistance) + 1);
-                } else {
-                    map.put(tempDistance, 1);
+                if (i != j) {
+                    int d = distance(points[i], points[j]);
+                    if (map.containsKey(d)) {
+                        map.put(d, map.get(d) + 1);
+                    } else {
+                        map.put(d, 1);
+                    }
                 }
             }
-            for (Integer value : map.values()) {
-                if (value > 1) {
-                    sum += value* (value - 1);
+            for (int d : map.values()) {
+                if (d >= 2) {
+                    sum += d * (d - 1);
                 }
             }
             map.clear();
