@@ -8,7 +8,7 @@
 
 /**
  * Author: Jinglong Guo
- * Company: .
+ * Company: Bloomberg.
  * Date: 03/25/2017
  */
 
