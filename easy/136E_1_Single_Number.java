@@ -5,7 +5,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Palantir, Airbnb.
  * Date: 03/02/2017
  */
 
