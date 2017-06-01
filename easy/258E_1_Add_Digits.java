@@ -12,7 +12,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Adobe, Microsoft.
  * Date: 03/08/2017
  */
 
