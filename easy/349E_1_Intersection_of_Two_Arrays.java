@@ -8,6 +8,11 @@
  ************************************************************************/
 
 /**
+ * Difficulty: Easy; 
+ * Company: Two Sigma.
+ */
+
+/**
  * Approach 1: two hashsets (running time complexity: O(n))
  */
 public class Solution {
