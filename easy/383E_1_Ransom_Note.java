@@ -12,7 +12,8 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: Apple.
  * Date: 03/13/2017
  */
 
