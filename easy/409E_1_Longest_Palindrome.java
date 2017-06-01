@@ -7,7 +7,8 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: .
  * Date: 03/25/2017
  * Modified data: 05/29/2017
  */
@@ -19,6 +20,7 @@
 // 如果output不等于输入字符串的长度，说明有的字母有奇数个，而回文中只允许有一个个数为奇数的字母存在。
 // 回文：正读和反渎是一样的。
 
+// 2 approaches: alphabet array, hashmap.
 // Integer array to take the frequency of characters.
 public class Solution {
     public int longestPalindrome(String s) {
