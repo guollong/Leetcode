@@ -8,13 +8,14 @@
  * Note: You may assume the greed factor is always positive. 
  * 		 You cannot assign more than one cookie to one child.
  * Example:
- * 		Input: [1,2,3], [1,1]; Output: 1
+ * 		Input: [1,2,3], [1,1]; Output: 1 ([1,2,3]: child greed factor; [1,1]: cookies number).
  * 		Input: [1,2], [1,2,3]; Output: 2
  */
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: .
  * Date: 03/13/2017
  */
 
@@ -28,9 +29,7 @@ public class Solution {
         Arrays.sort(g);
         Arrays.sort(s);
         int gi = 0;
-        int glength = g.length;
-        int slength = s.length;
-        for (int si = 0; gi < glength && si < slength; si++) {
+        for (int si = 0; gi < g.length && si < s.length; si++) {
             if (g[gi] <= s[si]) {
                 gi++;
             }
