@@ -7,7 +7,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Adobe, Zenefits.
  * Create Date: 03/25/2017
  * Update date: 05/31/2017
  */
