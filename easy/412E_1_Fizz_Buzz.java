@@ -6,7 +6,8 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: .
  * Date: 02/24/2017
  */
 
