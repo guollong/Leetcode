@@ -11,33 +11,30 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: .
  * Date: 02/24/2017
  */
-
 public class Solution {
     public int[] nextGreaterElement(int[] findNums, int[] nums) {
-        int[] output = new int[findNums.length];
-        int flag = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        int[] res = new int[findNums.length];
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
+        }
         for (int i = 0; i < findNums.length; i++) {
-            int j = 0;
-            for (j = 0; j < nums.length; j++) {
-                if (findNums[i] == nums[j]) {
+            int index = map.get(findNums[i]);
+            int j = index + 1;
+            for (; j < nums.length; j++) {
+                if (findNums[i] < nums[j]) {
+                    res[i] = nums[j];
                     break;
                 }
             }
-            flag = 0;
-            for (int k = j; k < nums.length; k++) {
-                if (nums[k] > findNums[i]) {
-                    output[i] = nums[k];
-                    flag = 1;
-                    break;
-                }
-            }
-            if (flag == 0) {
-                output[i] = -1;
+            if (j == nums.length) {
+                res[i] = -1;
             }
         }
-        return output;
+        return res;
     }
 }
