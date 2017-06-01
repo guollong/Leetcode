@@ -9,7 +9,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Amazon.
  * Date: 03/11/2017
  * Update date: 05/31/2017
  */
