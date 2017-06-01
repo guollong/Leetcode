@@ -12,46 +12,38 @@
  * Date: 02/24/2017
  */
 
-
-// Forget to check if the word only has single letter.
-// two cases: 1. the first letter is upper case; 2: the first letter is lower case.
+// three cases: 1. string only has one letter 2: The first two letters are upper case; 3. left cases
 public class Solution {
     public boolean detectCapitalUse(String word) {
-        if (word.length() == 1) {
+        if (word.length() <= 1) {
             return true;
         }
-        char[] wordArray = word.toCharArray();
-        char firstLetter = wordArray[0];
-        if (firstLetter >= 'A' && firstLetter <= 'Z') {
-            if (wordArray[1] >= 'A' && wordArray[1] <= 'Z') {
-                for (int i = 2; i < wordArray.length; i++) {
-                    if (wordArray[i] < 'A' || wordArray[i] > 'Z') {
+        char[] charWord = word.toCharArray();
+        for (int i = 0; i < word.length(); i++) {
+            if (charWord[0] < 97 && charWord[1] < 97) {
+                for (int j = 2; j < word.length(); j++) {
+                    if (charWord[j] >= 97) {
                         return false;
                     }
                 }
-                return true;
-            } else if (wordArray[1] >= 'a' && wordArray[1] <= 'z') {
-                for (int i = 2; i < wordArray.length; i++) {
-                    if (wordArray[i] < 'a' || wordArray[i] > 'z') {
+            } else {
+                for (int j = 1; j < word.length(); j++) {
+                    if (charWord[j] < 97) {
                         return false;
                     }
-                }
-                return true;
-            } 
-        } else if (firstLetter >= 'a' && firstLetter <= 'z') {
-            for (int i = 1; i < wordArray.length; i++) {
-                if (wordArray[i] < 'a' || wordArray[i] > 'z') {
-                    return false;
                 }
             }
-            return true;
-            
         }
-        return false;
+        return true;
     }
 }
 
-
-
-
+// one line solution: 正则表达式
+// "+" represents for the numbers of characters.
+// 该表达式意义：均为大写 | 均为小写 | 第一个大写并且其余均为小写。
+public class Solution {
+    public boolean detectCapitalUse(String word) {
+        return word.matches("[A-Z]+|[a-z]+|[A-Z][a-z]+");
+    }
+}
 
