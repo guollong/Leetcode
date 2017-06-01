@@ -6,22 +6,20 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: .
  * Date: 03/09/2017
  */
 
 public class Solution {
     public int[] constructRectangle(int area) {
-        int threshold = (int)Math.sqrt(area);
-        int[] result = new int[2];
-        for (int i = threshold; i >= 1; i--) {
-            int width = i;
-            if (area % width == 0) {
-                result[0] = area / width;
-                result[1] = width;
-                break;
+        int startIndex = (int)Math.floor(Math.sqrt(area));
+        while (startIndex > 0) {
+            if (area % startIndex == 0) {
+                return new int[]{area / startIndex, startIndex};
             }
+            startIndex--;
         }
-        return result;
+        return new int[]{};
     }
 }
