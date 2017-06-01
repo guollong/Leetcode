@@ -9,7 +9,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: 暂时无.
  */
 
 /**
