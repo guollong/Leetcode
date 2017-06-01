@@ -7,11 +7,12 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: .
  * Date: 03/03/2017
  */
 
-// index对应着从1到数组大小的有序整数（-1），nums为测试数组，处理好对应关系，将出现过的value都设置为其对应的负值， 
+// index对应着从1到数组大小的有序整数-1，nums为测试数组，处理好对应关系，将出现过的value都设置为其对应的负值， 
 // 最终数组中的正数即为缺失的数。
 public class Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
