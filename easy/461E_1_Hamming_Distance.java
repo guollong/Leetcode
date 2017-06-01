@@ -15,7 +15,25 @@
  * Date: 02/24/2017
  */
 
-// jinglong's solution.
+public class Solution {
+    public int hammingDistance(int x, int y) {
+        return Integer.bitCount(x ^ y);
+    }
+}
+
+// Not using bitCount method.
+// Notes: ^为异或，只需要得到在异或结果中有多少个1即可.
+public class Solution {
+    public int hammingDistance(int x, int y) {
+        int xor = x ^ y, count = 0;
+        for (int i = 0; i < 32; i++) {
+        	count += (xor >> i) & 1;
+        }
+        return count;
+    }
+}
+
+// jinglong's original solution.
 // Notes: 右移或左移时，后面的数字代表是多少位，很容易写错，因为我们通常要做的是乘以2或者除以2，所以一般位数一般为1.
 public class Solution {
     public int hammingDistance(int x, int y) {
@@ -30,26 +48,5 @@ public class Solution {
         return count;
     }
 }
-
-// simpler version from discussion.
-// Notes: ^为异或，只需要得到在异或结果中有多少个1即可.
-public class Solution {
-    public int hammingDistance(int x, int y) {
-        int xor = x ^ y, count = 0;
-        for (int i = 0; i < 32; i++) {
-        	count += (xor >> i) & 1;
-        }
-        return count;
-    }
-}
-
-// Simpler version from discussion.
-// 可以用函数得到进行bit count.
-public class Solution {
-    public int hammingDistance(int x, int y) {
-        return Integer.bitCount(x ^ y);
-    }
-}
-
 
 
