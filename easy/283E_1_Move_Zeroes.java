@@ -10,7 +10,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Facebook, Bloomberg.
  * Create Date: 03/09/2017
  * Update date: 05/31/2017
  */
