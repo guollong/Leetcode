@@ -7,7 +7,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Amazon, Uber, Yelp.
  * Date: 03/25/2017
  */
 
