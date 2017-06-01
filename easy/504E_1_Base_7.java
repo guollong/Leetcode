@@ -8,7 +8,8 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: 暂时无.
  * Date: 03/25/2017
  * Modified date: 05/29/2017
  */
