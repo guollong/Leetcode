@@ -7,6 +7,7 @@
     >
     > Author: Jinglong Guo
     > Created Time: Sun Dec 18 19:59:27 2016
+    > Company: Amazon, Bloomberg, Microsoft.
  ************************************************************************/
 
 // 3种方法：sort and compare, hashmap, and alphabet array.
