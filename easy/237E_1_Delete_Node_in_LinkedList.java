@@ -8,7 +8,8 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: Adobe, Apple, Microsoft.
  * Date: 03/25/2017
  */
 
