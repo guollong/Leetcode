@@ -6,7 +6,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: LinkedIn, Uber, Apple, Yahoo.
  * Date: 03/02/2017
  */
 
