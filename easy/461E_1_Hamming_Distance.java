@@ -11,7 +11,8 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: Facebook.
  * Date: 02/24/2017
  */
 
