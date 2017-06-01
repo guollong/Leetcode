@@ -7,7 +7,8 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
+ * Difficulty: Easy; 
+ * Company: .
  * Date: 03/09/2017
  */
 
@@ -22,6 +23,8 @@ public class Solution {
         String[] result = new String[length];
         Map<Integer, Integer> map = new HashMap<>();
         
+//         int[] tempArray = new int[length];
+//         System.arraycopy(nums, 0, tempArray, 0, length);
         int[] tempArray = nums.clone(); 
         Arrays.sort(nums);
         
