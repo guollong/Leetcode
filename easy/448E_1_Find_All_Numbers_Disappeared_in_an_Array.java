@@ -8,7 +8,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Google.
  * Date: 03/03/2017
  */
 
