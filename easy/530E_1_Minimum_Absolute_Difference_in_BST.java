@@ -98,7 +98,6 @@ public class Solution {
         }
         
         set.add(root.val);
-        
         getMinimumDifference(root.left);
         getMinimumDifference(root.right);
         
