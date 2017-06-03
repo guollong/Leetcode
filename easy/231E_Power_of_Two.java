@@ -5,34 +5,30 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 03/28/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 03/28/2017
+ * Update date: 06/02/2017
  */
 
-// solution from discussion.
-public class Solution {
-    public boolean isPowerOfTwo(int n) {
-        return n>0 && Integer.bitCount(n) == 1;
-    }
-}
-
-// Jinglong's loop solution.
+// Be careful of the negative values and 0;
 public class Solution {
     public boolean isPowerOfTwo(int n) {
         if (n <= 0) {
             return false;
         }
-        if (n == 1) {
-            return true;
-        }
         int temp = n;
-        while (temp != 1) {
-            if (temp % 2 != 0) {
-                return false;
-            }
+        while ((temp & 1) != 1) {
             temp = temp >> 1;
         }
-        return true;
+        return temp == 1;
+    }
+}
+
+// solution from discussion.
+public class Solution {
+    public boolean isPowerOfTwo(int n) {
+        return n>0 && Integer.bitCount(n) == 1;
     }
 }
 
