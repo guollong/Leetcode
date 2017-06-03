@@ -7,8 +7,10 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 03/28/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 03/28/2017
+ * Update date: 06/02/2017
  */
 
 /**
@@ -24,17 +26,18 @@ public class Solution {
         if (head == null) {
             return null;
         }
-        ListNode parent = head;
-        ListNode current = head.next;
-        while (current != null) {
-            if (current.val != parent.val) {
-                parent = current;
-                current = current.next;
+        ListNode pre = head;
+        ListNode curr = head.next;
+        while (curr != null) {
+            if (pre.val == curr.val) {
+                pre.next = curr.next;
             } else {
-                parent.next = current.next;
-                current = current.next;
+                pre = curr;
             }
+            curr = curr.next;
         }
         return head;
     }
 }
+
+
