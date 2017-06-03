@@ -6,33 +6,31 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 03/28/2017
+ * Difficulty: Easy; 
+ * Company: Adobe, Apple.
+ * Create Date: 03/28/2017
+ * Update date: 06/02/2017
  */
 
-// Jinglong's solution.
+// 仍然只能想到这一种方法呢。。。。
 // get number of 1s and number of 2s, then use permutation get the result.
 public class Solution {
     public int climbStairs(int n) {
-        long sum = 0;
-        int num2 = 0;
-        for (int num1 = 0; num1 < n+1; num1++) {
-            if (num1 < n && (n - num1) % 2 != 0) {
-                num1++;
-            }
-            num2 = (n - num1) / 2;
-            sum += permutation(num2, num1 + num2);
+        int sum = 0;
+        // "i" is the number of 1-step, and (n - i) / 2 is the number of 2-step.
+        int i = (n % 2 == 1) ? 1 : 0;
+        for (; i <= n; i = i + 2) {
+            int step2 = (n - i) / 2;
+            sum += (int)combination(i, i + step2);
         }
-        return (int)sum;
+        return sum;
     }
     
     // 当多次用到multiplication时，要考虑数据类型的边界问题。
-    private long permutation(int selection, int total) {
+    private long combination(int selection, int total) {
         int count = 0;
         long result = 1;
-        if (selection > total / 2) {
-            selection = total - selection;
-        }
+        selection = Math.min(selection, total - selection);
         while (count < selection) {
             result *= total;
             total--;
@@ -41,6 +39,7 @@ public class Solution {
         }
         return result;
     }
+    
 }
 
 // Solution from discussion.
