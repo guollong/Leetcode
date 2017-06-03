@@ -21,7 +21,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Facebook, eBay.
  */
 
 /**
