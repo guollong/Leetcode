@@ -6,8 +6,10 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 03/28/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 03/28/2017
+ * Update date: 06/03/2017
  */
 
 // >>> is logical right shift and >> is arithmetic shift. Since here we treat the input number as an unsigned integer,
@@ -16,10 +18,8 @@ public class Solution {
     // you need to treat n as an unsigned value
     public int hammingWeight(int n) {
         int count = 0;
-        int temp = n;
-        while (temp != 0) {
-            count += (temp & 0x1);
-            temp = temp >>> 1;
+        for (int i = 0; i < 32; i++) {
+            count += (n >>> i) & 1;
         }
         return count;
     }
