@@ -29,9 +29,7 @@
  * }
  */
 
-// Solution from discussion.
-// diameterOfBinaryTree method must returns max value. I define a global variable 'max' and update it while compute the maxDepth
-// of each node. 
+// For every node, length of longest path which pass it = MaxDepth of its left subtree + MaxDepth of its right subtree.
 public class Solution {
     
     int max = 0;
