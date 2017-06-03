@@ -14,9 +14,13 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 03/25/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 03/25/2017
+ * Update Date: 06/02/2017
  */
+
+// 很悲剧，这次又全部忘了。。。。。
 
 // solution from discussion.
 // Running time: 3ms(比较快)
