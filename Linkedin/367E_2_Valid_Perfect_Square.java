@@ -5,12 +5,31 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: Linkedin.
- * Date: 02/06/2017
+ * Difficulty: Easy; 
+ * Company: Linkedin.
+ * Create Date: 02/06/2017
+ * Update Date: 06/05/2017
  * Notes: In this problem, I think the binary search is the best solution.
  */
 
-// improved solution2: Binary search(O(logn))
+// My own solution. 
+public class Solution {
+    public boolean isPerfectSquare(int num) {
+        if (num <= 0) {
+            return false;
+        }
+        int number = (num + 1) / 2;
+        while (number >= 1) {
+            if (number * number == num) {
+                return true;
+            }
+            number--;
+        }
+        return false;
+    }
+}
+
+// Improved solution2: Binary search(O(logn))
 public class Solution {
     public boolean isPerfectSquare(int num) {
         int low = 1, high = num;
@@ -38,23 +57,5 @@ public class Solution {
             i = i + 2;
         }
         return num == 0;
-    }
-}
-
-// My own solution. 
-public class Solution {
-    public boolean isPerfectSquare(int num) {
-        if (num < 0) {
-            return false;
-        }
-        if (num == 0 || num == 1) {
-            return true;
-        }
-        for (int i = 1; i <= num / 2; i++) {
-            if (i * i == num) {
-                return true;
-            }
-        }
-        return false;
     }
 }
