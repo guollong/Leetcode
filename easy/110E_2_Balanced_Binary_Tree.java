@@ -7,7 +7,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Bloomberg.
  * Create Date: 02/24/2017
  * Update date: 06/04/2017
  */
