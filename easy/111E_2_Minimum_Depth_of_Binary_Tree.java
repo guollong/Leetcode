@@ -5,8 +5,10 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 03/26/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 03/26/2017
+ * Update date: 06/04/2017
  */
 
 /**
@@ -19,7 +21,6 @@
  * }
  */
 
-// path指的是从root到叶子的距离。
 public class Solution {
     public int minDepth(TreeNode root) {
         if (root == null) {
