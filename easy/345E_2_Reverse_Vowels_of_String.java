@@ -7,8 +7,10 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 04/03/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 04/03/2017
+ * Update date: 06/05/2017
  */
 
 // Two pointers method.
