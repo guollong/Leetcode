@@ -42,7 +42,7 @@ public class Solution {
     }
 }
 
-// No loop no recursion. Method 1: 
+// No loop no recursion. Method 1: This works only when the base is prime.
 // 3^20 exceeds the scope of an integer.
 public class Solution {
     public boolean isPowerOfThree(int n) {
