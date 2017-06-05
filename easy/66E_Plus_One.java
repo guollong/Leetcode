@@ -6,37 +6,41 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 04/03/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 04/03/2017
+ * Update date: 06/05/2017
  */
 
 public class Solution {
     public int[] plusOne(int[] digits) {
-        int length = digits.length;
         int carry = 0;
-        if (digits[length - 1] == 9) {
-            digits[length - 1] = 0;
+        if (digits[digits.length - 1] == 9) {
+            digits[digits.length - 1] = 0;
             carry = 1;
         } else {
-            digits[length - 1] = digits[length - 1] + 1;
+            digits[digits.length - 1]++;
+            return digits;
         }
-        for (int i = length - 2; i >= 0; i--) {
-            if (digits[i] + carry > 9) {
-                digits[i] = (digits[i] + carry) % 10;
+        for (int i = digits.length - 2; i >= 0; i--) {
+            int sum = digits[i] + carry;
+            if (sum == 10) {
+                digits[i] = 0;
                 carry = 1;
             } else {
-                digits[i] = digits[i] + carry;
+                digits[i] = sum;
                 carry = 0;
             }
         }
         if (carry == 1) {
-            int[] result = new int[length + 1];
+            int[] result = new int[digits.length + 1];
             result[0] = 1;
-            for (int i = 0; i < length; i++) {
-                result[i+1] = digits[i];
+            for (int i = 0; i < digits.length; i++) {
+                result[i + 1] = digits[i];
             }
             return result;
         }
         return digits;
     }
 }
+
