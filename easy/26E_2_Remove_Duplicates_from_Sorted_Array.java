@@ -11,7 +11,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Microsoft, Bloomberg, Facebook.
  */
 
 /**
@@ -33,3 +33,5 @@ public class Solution {
         return index;
     }
 }
+
+
