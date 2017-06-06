@@ -14,8 +14,10 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 04/05/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 04/05/2017
+ * Update date: 06/05/2017
  */
 
 
