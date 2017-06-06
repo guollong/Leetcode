@@ -14,19 +14,13 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 04/05/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 04/05/2017
+ * Update date: 06/05/2017
  */
 
-// 数学方法。
-public class Solution {
-    public int arrangeCoins(int n) {
-        return (int) ((Math.sqrt(1 + 8.0 * n) - 1) / 2);
-    }
-}
-
-// binary search. Always thinking about the binary search method. 
-// 还是尽量不使用除法，可以将其变为乘法或者移位运算。
+// solution1: Binary search. Always thinking about the binary search method. 
 public class Solution {
     public int arrangeCoins(int n) {
         int start = 0;
@@ -43,5 +37,29 @@ public class Solution {
         return start - 1;
     }
 }
+
+// Solution2: while loop
+public class Solution {
+    public int arrangeCoins(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        int index = 1;
+        while (n > index) {
+            n -= index;
+            index++;
+        }
+        return n == index ? index : index - 1;
+    }
+}
+
+// Solution3: Mathetical method.
+public class Solution {
+    public int arrangeCoins(int n) {
+        return (int) ((Math.sqrt(1 + 8.0 * n) - 1) / 2);
+    }
+}
+
+
 
 
