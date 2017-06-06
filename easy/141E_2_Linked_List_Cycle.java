@@ -6,7 +6,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Amazon, Microsoft, Bloomberg, Yahoo.
  * Create Date: 04/05/2017
  * Update date: 06/06/2017
  */
