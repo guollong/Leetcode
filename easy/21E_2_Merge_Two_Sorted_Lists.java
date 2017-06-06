@@ -6,7 +6,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Amazon, LinkedIn, Apple, Microsoft.
  * Create Date: 03/29/2017
  * Update date: 06/05/2017
  */
