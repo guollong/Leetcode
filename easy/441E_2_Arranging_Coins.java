@@ -15,7 +15,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: GoDaddy.
  * Create Date: 04/05/2017
  * Update date: 06/05/2017
  */
