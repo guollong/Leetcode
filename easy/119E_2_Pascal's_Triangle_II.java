@@ -19,7 +19,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Amazon.
  */
 
 /**
@@ -66,25 +66,4 @@ public class Solution {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
 
