@@ -5,8 +5,10 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 04/05/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 04/05/2017
+ * Update date: 06/06/2017
  */
 
 /**
@@ -26,6 +28,7 @@ public class Solution {
             return false;
         }
         ListNode walker = head, runner = head;
+        // 注意这里的循环条件不是(walker.next != null && runner.next.next != null)。
         while (runner.next != null && runner.next.next != null) {
             walker = walker.next;
             runner = runner.next.next;
