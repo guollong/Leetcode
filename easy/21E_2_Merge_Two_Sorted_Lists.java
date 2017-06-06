@@ -5,8 +5,10 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 03/29/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 03/29/2017
+ * Update date: 06/05/2017
  */
 
 /**
@@ -19,7 +21,6 @@
  */
 
 // Simple recursive method from discussion.
-// 自己老是想不到这种方法，要多总结。
 public class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if(l1 == null){
@@ -52,45 +53,40 @@ public class Solution {
         if (l2 == null) {
             return l1;
         }
-        ListNode root = null;
-        ListNode temp = null;
-        while (l1 != null && l2 != null) {
-            if (l1.val < l2.val) {
-                if (root == null) {
-                    root = l1;
-                    temp = root;
-                } else {
-                    temp.next = l1;
-                    temp = temp.next;
-                }
-                l1 = l1.next;
-            } else {
-                if (root == null) {
-                    root = l2;
-                    temp = root;
-                } else {
-                    temp.next = l2;
-                    temp = temp.next;
-                }
-                l2 = l2.next;
-            }
-        }
-        if (l1 != null) {
-            while (l1 != null) {
-                temp.next = l1;
-                temp = temp.next;
-                l1 = l1.next;
-            }
+        
+        ListNode pointer1 = l1;
+        ListNode pointer2 = l2;
+        ListNode result;
+        if (l1.val > l2.val) {
+            result = l2;
+            pointer2 = pointer2.next;
         } else {
-            while (l2 != null) {
-                temp.next = l2;
-                temp = temp.next;
-                l2 = l2.next;
-            }
+            result = l1;
+            pointer1 = pointer1.next;
         }
-        return root;
+        ListNode temp = result;
+        while (pointer1 != null && pointer2 != null) {
+            if (pointer1.val > pointer2.val) {
+                temp.next = pointer2;
+                pointer2 = pointer2.next;
+            } else {
+                temp.next = pointer1;
+                pointer1 = pointer1.next;
+            }
+            temp = temp.next;
+        }
+        while (pointer1 != null) {
+            temp.next = pointer1;
+            pointer1 = pointer1.next;
+            temp = temp.next;
+        }
+        while (pointer2 != null) {
+            temp.next = pointer2;
+            pointer2 = pointer2.next;
+            temp = temp.next;
+        }
+        return result;
     }
 }
-
 
 
