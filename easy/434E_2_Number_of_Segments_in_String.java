@@ -7,10 +7,25 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 04/03/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 04/03/2017
+ * Update date: 06/05/2017
  */
 
+// Solution1: using split method in String class.
+public class Solution {
+    public int countSegments(String s) {
+        String sTrim = s.trim();
+        if (sTrim.equals("")) {
+            return 0;
+        }
+        String[] sArray = sTrim.split("\\s+");
+        return sArray.length;
+    }
+}
+
+// Solution2: Use for loop to check each element.
 public class Solution {
     public int countSegments(String s) {
         int res = 0;
