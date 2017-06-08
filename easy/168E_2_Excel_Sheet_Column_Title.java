@@ -7,7 +7,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Microsoft, Facebook, Zenefits.
  * Create Date: 03/25/2017
  * Update date: 06/07/2017
  */
