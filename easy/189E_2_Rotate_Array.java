@@ -10,7 +10,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Microsoft, Bloomberg.
  */
 
 /**
