@@ -6,24 +6,24 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 03/25/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 03/25/2017
+ * Update date: 06/07/2017
  */
 
 // ascii to char: 直接强制类型转换(char)65即可。
-// StringBuilder有reverse() method。
 public class Solution {
     public String convertToTitle(int n) {
-        StringBuilder title = new StringBuilder();
+        StringBuilder result = new StringBuilder();
         int temp = n;
-        int quotient = n;
-        int remainder = n;
+        int remainder = 0;
         while (temp != 0) {
-            quotient = (temp - 1) / 26;
             remainder = (temp - 1) % 26;
-            title.append((char)('A' + remainder));
-            temp = quotient;
+            result.append((char) (remainder + 'A'));
+            temp = (temp - 1) / 26;
         }
-        return title.reverse().toString();
+        return result.reverse().toString();
     }
 }
+
