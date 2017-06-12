@@ -54,8 +54,36 @@ public class Solution {
     }
 }
 
+// Solution 2: 1 hashmap (pattern as keys and str as values). If the key is in the map, return false when
+//      the value is not the value in the map. If the key is not in the map, return false when the map contains
+//      this value, else put key and value in the map.
+public class Solution {
+    public boolean wordPattern(String pattern, String str) {
+        String[] arrayStr = str.split("\\s+");
+        if (pattern.length() != arrayStr.length) {
+            return false;
+        }
+        Map<Character, String> map = new HashMap<>();
+        for(int i = 0 ; i < pattern.length(); i++){
+            char key = pattern.charAt(i);
+            String value = arrayStr[i];
+            if (map.containsKey(key)){
+                if (!map.get(key).equals(value)) {
+                    return false;
+                }
+            } else {
+                if (map.containsValue(value)) {
+                    return false;
+                } else {
+                    map.put(key, value);
+                }
+            }
+        }
+        return true;
+    }
+}
 
-// Solution 2: 2 hashmap built from the pattern and string, storing the key and indices(list).
+// Solution 3: 2 hashmap built from the pattern and string, storing the key and indices(list).
 // 		Then loop over the pattern, comparing two list getting from string and pattern.
 public class Solution {
     public boolean wordPattern(String pattern, String str) {
