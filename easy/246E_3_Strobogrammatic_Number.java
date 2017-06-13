@@ -7,8 +7,10 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 03/28/2017
+ * Difficulty: Easy; 
+ * Company: Google.
+ * Create Date: 03/28/2017
+ * Update date: 06/13/2017
  */
 
 // 是某种程度上的对称，所以除了其本身是对称的数字以外，还要求在对称位置上的值相等，（6和9除外，要互为对方的值）。
