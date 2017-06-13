@@ -14,32 +14,35 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 02/24/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 02/24/2017
+ * Update date: 06/12/2017
  */
 
 // Jinglong's solution.
 public class Logger {
+    Map<String, Integer> map;
     
-    HashMap<String, Integer> log;
-
     /** Initialize your data structure here. */
     public Logger() {
-        log = new HashMap<String, Integer>();
+        map = new HashMap<>();
     }
     
+    /** Returns true if the message should be printed in the given timestamp, otherwise returns false.
+        If this method returns false, the message will not be printed.
+        The timestamp is in seconds granularity. */
     public boolean shouldPrintMessage(int timestamp, String message) {
-        if (log.containsKey(message)) {
-            if (timestamp - log.get(message) < 10) {
-                return false;
-            } else {
-                log.put(message, timestamp);
-                return true;
-            }
+        if (!map.containsKey(message)) {
+            map.put(message, timestamp);
         } else {
-            log.put(message, timestamp);
-            return true;
+            int time = map.get(message);
+            if (timestamp - time < 10) {
+                return false;
+            }
+            map.put(message, timestamp);
         }
+        return true;
     }
 }
 
@@ -48,4 +51,3 @@ public class Logger {
  * Logger obj = new Logger();
  * boolean param_1 = obj.shouldPrintMessage(timestamp,message);
  */
-
