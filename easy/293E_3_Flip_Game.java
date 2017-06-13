@@ -9,23 +9,21 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 02/24/2017
+ * Difficulty: Easy; 
+ * Company: Google.
+ * Create Date: 02/24/2017
+ * Update date: 06/13/2017
  */
 
-// 正确使用stringbuilder，在循环的时候使用。
-// 截取字符串举例：s.substring(0,2);
+
 public class Solution {
     public List<String> generatePossibleNextMoves(String s) {
         List<String> result = new LinkedList<>();
-        for (int i = 0; i < s.length() - 1;) {
-            if (s.charAt(i) == '+' && s.charAt(i + 1) == '+') {
-                result.add(s.substring(0, i) + "--" + s.substring(i + 2, s.length()));
-                i++;
-            } else if (s.charAt(i) == '-' && s.charAt(i + 1) == '+') {
-                i++;
-            } else {
-                i = i + 2;
+        int i = 1;
+        for ( ; i < s.length(); i++) {
+            char curr = s.charAt(i);
+            if (curr == '+' && curr == s.charAt(i - 1)) {
+                result.add(s.substring(0, i - 1) + "--" + s.substring(i + 1));
             }
         }
         return result;
@@ -35,10 +33,17 @@ public class Solution {
 // 可以用s.indexOf("++", start position)来找子字符串首次出现的index
 public class Solution {
     public List<String> generatePossibleNextMoves(String s) {
-        List list = new ArrayList();
-        for (int i=-1; (i = s.indexOf("++", i+1)) >= 0; )
-            list.add(s.substring(0, i) + "--" + s.substring(i+2));
-        return list;
+        List<String> result = new LinkedList<>();
+        int index = 0;
+        while (index < s.length() - 1) {
+            int position = s.indexOf("++", index);
+            if (position < 0) {
+                break;
+            }
+            result.add(s.substring(0, position) + "--" + s.substring(position + 2));
+            index = position + 1;
+        }
+        return result;
     }
 }
 
