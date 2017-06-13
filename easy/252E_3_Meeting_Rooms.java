@@ -7,8 +7,10 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 03/25/2017
+ * Difficulty: Easy; 
+ * Company: Facebook.
+ * Create Date: 03/25/2017
+ * Update date: 06/13/2017
  */
 
 /**
@@ -21,7 +23,28 @@
  * }
  */
 
-// Solution from discussion.
+// Solution 1: Sort the intervals based on the starting time (implement comparator). Then loop 
+//      over the sorted array, if the meet starts before the end of the previous meeting, return false;
+public class Solution {
+    public boolean canAttendMeetings(Interval[] intervals) {
+        Arrays.sort(intervals, new IntervalComparator());
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[i].start < intervals[i - 1].end) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    private class IntervalComparator implements Comparator<Interval>{
+    	@Override
+    	public int compare(Interval inter1, Interval inter2) {
+    		return inter1.start - inter2.start;
+    	}
+    }
+}
+
+// Simpler version: The same idea with above solution, but combine the comparator with arrays.sort method.
 public class Solution {
     public boolean canAttendMeetings(Interval[] intervals) {
         if (intervals == null) {
