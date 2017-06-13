@@ -8,15 +8,17 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: Linkedin.
- * Date: 02/03/2017
- * Notes: always consider the corner case(check the validation of the input value)
- * 		  For each iteration, we fix the second index and just get the minimum of the other two.
+ * Difficulty: Easy; 
+ * Company: Linkedin.
+ * Create Date: 02/03/2017
+ * Update date: 06/13/2017
  */
 
+// This is a dynamic programming problem. Get the min from the result of last time.
+// DP ???
 public class Solution {
     public int minCost(int[][] costs) {
-        if (costs == null || costs.length == 0) {
+        if (costs.length == 0) {
             return 0;
         }
         for (int i = 1; i < costs.length; i++) {
