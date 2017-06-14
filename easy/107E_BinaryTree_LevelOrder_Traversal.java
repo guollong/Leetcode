@@ -12,8 +12,10 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 02/24/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 02/24/2017
+ * Update date: 06/14/2017
  */
 
 /**
@@ -25,6 +27,27 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+// Solution 1: Implement helper function to keep the "level" information.
+public class Solution {
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> result = new LinkedList<>();
+        levelOrderBottomHelper(root, 0, result);
+        return result;
+    }
+    
+    private void levelOrderBottomHelper(TreeNode root, int level, List<List<Integer>> result) {
+        if (root == null) {
+            return;
+        }
+        if (level == result.size()) {
+            result.add(0, new LinkedList<Integer>());
+        }
+        result.get(result.size()-level-1).add(root.val);
+        levelOrderBottomHelper(root.left, level + 1, result);
+        levelOrderBottomHelper(root.right, level + 1, result);
+    }
+}
 
  /**
   * Functions in Queue: 
