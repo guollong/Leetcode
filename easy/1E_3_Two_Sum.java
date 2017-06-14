@@ -7,7 +7,9 @@
                 return [0, 1].
     >
 	> Author: Jinglong Guo
-	> Created Time: Sun Dec 18 19:59:27 2016
+	> Company: 
+	> Create date: 12/18/2017
+	> Update date: 06/14/2017
  ************************************************************************/
 
 /**
@@ -62,7 +64,7 @@ public class Solution {
         for (int i = 0; i < nums.length; i++) {
             int temp = target - nums[i];
             if (map.containsKey(temp)) {
-                return new int[] { map.get(temp), i };
+                return new int[] {map.get(temp), i};
             }
             map.put(nums[i], i);
         }
