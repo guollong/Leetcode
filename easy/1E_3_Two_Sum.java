@@ -7,7 +7,8 @@
                 return [0, 1].
     >
 	> Author: Jinglong Guo
-	> Company: 
+	> Company: LinkedIn, Uber, Airbnb, Facebook, Amazon, Microsoft, Apple, Yahoo
+	>	   Dropbox, Bloomberg, Yelp, Adobe.
 	> Create date: 12/18/2017
 	> Update date: 06/14/2017
  ************************************************************************/
