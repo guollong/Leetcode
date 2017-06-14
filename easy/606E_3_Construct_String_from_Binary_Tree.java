@@ -26,7 +26,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Amazon.
  */
 
 /**
