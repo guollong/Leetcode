@@ -13,8 +13,10 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 02/24/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 02/24/2017
+ * Update date: 06/14/2017
  */
 
 /**
@@ -27,7 +29,19 @@
  * }
  */
 
-// 如果两个node不在同一边，共同祖先就是root。
+// Solution 1: Recursive method.
+public class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root.val > p.val && root.val > q.val) {
+            return lowestCommonAncestor(root.left, p, q);
+        } else if (root.val < p.val && root.val < q.val) {
+            return lowestCommonAncestor(root.right, p, q);
+        }
+        return root;
+    }
+}
+
+// Solution 2: Iterative method.
 public class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         while ((root.val - p.val) * (root.val - q.val) > 0) {
