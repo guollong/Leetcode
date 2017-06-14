@@ -7,11 +7,36 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Easy; Company: .
- * Date: 04/05/2017
+ * Difficulty: Easy; 
+ * Company: .
+ * Create Date: 04/05/2017
+ * Update date: 06/14/2017
  */
 
-// Use stack to implement this.
+// General solution.
+public class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        String left = "({[";
+        String right = ")}]";
+        for (int i = 0; i < s.length(); i++) {
+            Character c = s.charAt(i);
+            int index1 = left.indexOf(c);
+            int index2 = right.indexOf(c);
+            if (index1 >= 0) {
+                stack.push(c);
+            }
+            if (index2 >= 0) {
+                if (stack.isEmpty() || stack.pop() != left.charAt(index2)) {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+}
+
+// More effective method.
 public class Solution {
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
