@@ -14,7 +14,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Amazon, Microsoft, Facebook, Twitter.
  * Create Date: 02/24/2017
  * Update date: 06/14/2017
  */
