@@ -20,7 +20,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: LinkedIn, Bloomberg, Microsoft.
  */
 
 /**
