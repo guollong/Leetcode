@@ -8,7 +8,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Google, Airbnb, Facebook, Twitter, Zenefits, Amazon, Microsoft, Bloomberg.
  * Create Date: 04/05/2017
  * Update date: 06/14/2017
  */
