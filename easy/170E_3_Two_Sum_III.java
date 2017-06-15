@@ -2,7 +2,8 @@
  * Author: Jinglong Guo
  * Difficulty: Easy; 
  * Company: Linkedin.
- * Date: 02/03/2017
+ * Create Date: 02/03/2017
+ * Update date: 06/15/2017
  * Notes: always take big data into consideration. O(n^2) is the worst case.
  */
 
@@ -20,34 +21,63 @@
  * boolean param_2 = obj.find(value);
  */
 
+// Solution 1: Using hashmap.
 public class TwoSum {
-    
-    Map<Integer, Integer> data;
-
+    Map<Integer, Integer> map;
     /** Initialize your data structure here. */
     public TwoSum() {
-        data = new HashMap<Integer, Integer>();
+        map = new HashMap<>();
     }
     
     /** Add the number to an internal data structure.. */
-    // Running time complexity: O(1)
     public void add(int number) {
-        if (data.containsKey(number)) {
-            data.put(number, data.get(number) + 1);
-        } else {
-            data.put(number, 1);
-        }
+        map.put(number, map.getOrDefault(number, 0) + 1);
     }
     
     /** Find if there exists any pair of numbers which sum is equal to the value. */
-    // Running time complexity: O(n)
     public boolean find(int value) {
-        for (Integer element : data.keySet()) {
+        for (int element : map.keySet()) {
             int anotherEle = value - element;
-            if ((element != anotherEle && data.containsKey(anotherEle)) || (anotherEle == element && data.get(element) != 1)){
+            if (element == anotherEle && map.get(element) > 1) {
+                return true;
+            }
+            if (element != anotherEle && map.containsKey(anotherEle)) {
                 return true;
             }
         }
         return false;
     }
 }
+
+// Solution 2: Use arraylist and two pointers.
+public class TwoSum {
+    List<Integer> list;
+    /** Initialize your data structure here. */
+    public TwoSum() {
+        list = new ArrayList<>();
+    }
+    
+    /** Add the number to an internal data structure.. */
+    public void add(int number) {
+        list.add(number);
+    }
+    
+    /** Find if there exists any pair of numbers which sum is equal to the value. */
+    public boolean find(int value) {
+        Collections.sort(list);
+        int front = 0; 
+        int rear = list.size() - 1;
+        while (front < rear) {
+            int sum = list.get(front) + list.get(rear);
+            if (sum == value) {
+                return true;
+            } else if (sum < value) {
+                front++;
+            } else {
+                rear--;
+            }
+        }
+        return false;
+    }
+}
+
