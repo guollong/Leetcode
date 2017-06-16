@@ -11,7 +11,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Google.
  * Create Date: 04/05/2017
  * Update date: 06/15/2017
  */
