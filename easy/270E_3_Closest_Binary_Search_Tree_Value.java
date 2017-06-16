@@ -8,7 +8,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: .
+ * Company: Microsoft, Google, SnapChat.
  */
 
 /**
