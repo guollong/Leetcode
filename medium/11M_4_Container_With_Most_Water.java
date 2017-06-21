@@ -10,7 +10,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Medium; 
- * Company: .
+ * Company: Bloomberg.
  */
 
 /**
