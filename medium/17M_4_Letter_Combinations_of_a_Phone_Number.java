@@ -10,7 +10,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Medium; 
- * Company: .
+ * Company: Dropbox, Google, Uber, Facebook.
  */
 
 /**
@@ -19,7 +19,6 @@
  */
 
 // Solutions are all from discussion.
-
 
 // Solution 1: Recursive method. Don't need to build a new string, just use the original string and
 //		offset. Check if the length of the prefix equals to the length of the digits.
