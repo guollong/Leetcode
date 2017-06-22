@@ -34,7 +34,7 @@ class Solution {
                 continue;
             }
             list.add(nums[i]);
-            permuteHelper(result, temp, list, length);
+            permuteHelper(result, nums, list, length);
             list.remove(list.size() - 1);
         }
     }
