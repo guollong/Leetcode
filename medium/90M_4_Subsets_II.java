@@ -18,7 +18,9 @@
  * Create Date: 06/18/2017
  */
 
-// Solved by jiuzhang permutation template. 
+// Backtracking problem. (jiuzhang template) 
+// Similiar question: subsets, permutation, combination sum and parlindrome partition.
+
 // In case of the above example, if we use tree structure to visulize the process of this method. Because 
 // the solution set cannot contain duplicate subsets, there are only two leaves (starting with 1 or 2).
 public class Solution {

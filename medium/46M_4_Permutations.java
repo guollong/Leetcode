@@ -17,7 +17,9 @@
  * Create Date: 06/18/2017
  */
 
-// Solved by jiuzhang permutation template.
+// Backtracking problem. (jiuzhang template) 
+// Similiar question: subsets, permutation, combination sum and parlindrome partition.
+
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();

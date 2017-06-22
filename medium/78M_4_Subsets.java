@@ -16,8 +16,9 @@
  * Create Date: 06/18/2017
  */
 
-// Jiuzhang 算法推荐排列组合模版～
-// This is a combination problem, so we have variable "pos" to avoid taking the same value.
+// Backtracking problem. (jiuzhang template) 
+// Similiar question: subsets, permutation, combination sum and parlindrome partition.
+
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         Arrays.sort(nums);

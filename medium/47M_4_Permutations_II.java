@@ -17,7 +17,9 @@
  * Create Date: 06/18/2017
  */
 
-// Solved by jiuzhang permutation template.
+// Backtracking problem. (jiuzhang template) 
+// Similiar question: subsets, permutation, combination sum and parlindrome partition.
+
 // This question is the combination of the question 90(subset with duplicates) and question 46(permutations)
 public class Solution {
     public List<List<Integer>> permuteUnique(int[] nums) {
