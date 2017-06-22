@@ -30,10 +30,10 @@ class Solution {
             result.add(new ArrayList<Integer>(list));
         }
         for (int i = 0; i < nums.length; i++) {
+            if (list.contains(nums[i])) {
+                continue;
+            }
             list.add(nums[i]);
-            int[] temp = new int[nums.length - 1];
-            System.arraycopy(nums, 0, temp, 0, i);
-            System.arraycopy(nums, i + 1, temp, i, nums.length - i - 1);
             permuteHelper(result, temp, list, length);
             list.remove(list.size() - 1);
         }
