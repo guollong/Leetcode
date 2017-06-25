@@ -33,7 +33,7 @@ public class Solution {
         }
 
         // Find the first occurrance index. 
-        // Use "start + 1 < end" avoid trapping into infinite loop.
+        // Use "start + 1 < end" avoid trapping into a infinite loop.
         int[] result = new int[2];
         int start1 = 0;
         int end1 = nums.length - 1;
