@@ -4,12 +4,14 @@
  * 
  * You are given a target value to search. If found in the array return its index, otherwise return -1.
  * You may assume no duplicate exists in the array.
+ *
+ * Follow up: Search in a rotated sorted array 2.....
  */
 
 /**
  * Author: Jinglong Guo
  * Difficulty: Medium; 
- * Company: .
+ * Company: Bloomberg, Uber, Facebook, Microsoft.
  */
 
 /**
