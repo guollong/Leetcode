@@ -23,9 +23,11 @@ public class Solution {
         int index1 = 0;
         int index2 = 0;
         for ( ;index2 < n; index2++) {
+            // find the insertion index.
             while (index1 < m + index2 && nums2[index2] > nums1[index1]) {
                 index1++;
             }
+            // move elements that greater than the insertion element and leave a blank space for the insertion element.
             int i = m + index2 - 1;
             while (i >= index1) {
                 nums1[i + 1] = nums1[i];
