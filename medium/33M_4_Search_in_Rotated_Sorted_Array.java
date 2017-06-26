@@ -6,6 +6,7 @@
  * You may assume no duplicate exists in the array.
  *
  * Follow up: Search in a rotated sorted array 2.....
+ * Similiar questions: 33, 81, 153, 154
  */
 
 /**
