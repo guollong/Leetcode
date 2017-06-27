@@ -6,7 +6,7 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Medium; 
+ * Difficulty: Hard; 
  * Company:  Google, Uber, Airbnb, Facebook, Twitter, Amazon, Microsoft.
  */
 
@@ -14,7 +14,6 @@
  * Progress...
  * Create Date: 06/26/2017
  */
-
 
 /**
  * Definition for singly-linked list.
