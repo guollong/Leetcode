@@ -19,7 +19,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Medium; 
- * Company: Google.
+ * Company: Bloomberg, Google, Facebook.
  */
 
 /**
