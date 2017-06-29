@@ -58,11 +58,12 @@ public class Solution {
   */
 public class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
         List<List<Integer>> bottomPrint = new LinkedList<List<Integer>>();
         if (root == null) {
             return bottomPrint;
         }
+        
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
         // Adds the specified element as the last element of this list.
         queue.offer(root);
         
