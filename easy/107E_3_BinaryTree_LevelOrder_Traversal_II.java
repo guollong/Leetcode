@@ -13,7 +13,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Easy; 
- * Company: 暂时无.
+ * Company: LinkedIn, Facebook, Amazon, Microsoft, Apple, Bloomberg.
  * Create Date: 02/24/2017
  * Update date: 06/14/2017
  */
