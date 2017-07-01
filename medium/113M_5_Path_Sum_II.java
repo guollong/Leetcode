@@ -16,7 +16,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Medium; 
- * Company: .
+ * Company: Microsoft, Bloomberg.
  */
 
 /**
@@ -26,7 +26,7 @@
 
 /**
  * Definition for a binary tree node.
- * public class TreeNode {
+ * public class Treeode {
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
