@@ -33,22 +33,28 @@
 // Time Complexity should be O(N^2) for the worst case and O(NlogN) for balanced binary Tree.
 public class Solution {
     public int pathSum(TreeNode root, int sum) {
-        if(root == null)
+        if (root == null) {
             return 0;
+        }
         return findPath(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
     }
     
-    public int findPath(TreeNode root, int sum){
+    // get the number of paths which start from root and its elements sum to 'sum'.
+    public int findPath(TreeNode root, int sum) {
         int res = 0;
-        if(root == null)
-            return res;
-        if(sum == root.val)
+        if (root == null) {
+            return 0;
+        }
+        if (sum == root.val) {
             res++;
+        }
         res += findPath(root.left, sum - root.val);
         res += findPath(root.right, sum - root.val);
         return res;
     }
 }
+
+// Couldn't understand.............................
 
 // Solution 2: The idea is similar as Two sum, using HashMap to store ( key : the prefix sum, 
 // 	value : how many ways get to this prefix sum) , and whenever reach a node, we check if 
