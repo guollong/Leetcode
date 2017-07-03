@@ -10,6 +10,7 @@
  * Company: Adobe, Apple.
  * Create Date: 03/28/2017
  * Update date: 06/02/2017
+ * Update date: 07/03/2017
  */
 
 // 仍然只能想到这一种方法呢。。。。
@@ -68,7 +69,28 @@ public class Solution {
     }
 }
 
-
+// Dynamic programming: Sequence DP. Using 1d dp array. The implementation above use constant memory space.
+public class Solution {
+    public int climbStairs(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        // Step1: state: f[i]: The number of distinct ways you can climb to the ith stair.
+        int[] ways = new int[n];
+        
+        // Step2: Initialization. 
+        ways[0] = 1;
+        ways[1] = 2;
+        
+        // Step3: Function. 
+        for (int i = 2; i < n; i++) {
+            ways[i] = ways[i - 1] + ways[i - 2];
+        }
+        
+        // Step4: Result.
+        return ways[n - 1];
+    }
+}
 
 
 
