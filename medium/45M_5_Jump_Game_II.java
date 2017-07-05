@@ -15,6 +15,12 @@
  * Company: Microsoft.
  */
 
+/**
+ * Progress...
+ * Create Date: 07/03/2017
+ */
+
+
 // For this question, dynamic programming is not the best solution. The best solution is greedy algorithm.
 // However, greedy is relatively not very important in interview. If you found it is necessary to know the
 // greedy solution of this problem, figure it out later.
