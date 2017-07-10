@@ -9,7 +9,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Medium; 
- * Company: 暂时无.
+ * Company: Uber, Facebook, Twitter, Zenefits, Amazon, Microsoft, Snapchat, Apple, Yahoo, Bloomberg, Yelp, Adobe.
  */
 
 /**
