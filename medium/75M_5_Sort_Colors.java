@@ -57,20 +57,22 @@ public class Solution {
         int end = length - 1;
         for (int i = 0; i <= end; i++) {
             if (nums[i] == 0) {
-                int temp = nums[i];
-                nums[i] = nums[front];
-                nums[front] = temp;
+                swap(nums, i, front);
                 front++;
             } else if (nums[i] == 2) {
-                int temp = nums[i];
-                nums[i] = nums[end];
-                nums[end] = temp;
+                swap(nums, i, end);
                 end--;
                 // It is possible to change another 2 to the position i, so we need to substract i by 1
                 // to check this position again.
                 i--;
             }
         }
+    }
+
+    private void swap(int[] nums, int index1, int index2) {
+    	int temp = nums[index1];
+    	nums[index1] = nums[index2];
+    	nums[index2] = temp;
     }
 }
 
