@@ -11,7 +11,7 @@
 
 /**
  * Author: Jinglong Guo
- * Difficulty: Medium; 
+ * Difficulty: Hard; 
  * Company: Microsoft.
  */
 
@@ -28,8 +28,32 @@
 // Sadly, in this problem, using dynamic programming will cause time limit exceed (pass in lintcode, but 
 //		fail in leetcode). Maybe need to do it using greedy algorithm. 
 
+// Dynamic programming: Sequence DP. 特别巧妙的解法。。
+public class Solution {
+    public int jump(int[] nums) {
+        // f[i]: The minimum number of jumps to reach the position i.
+        int[] jumps = new int[nums.length];
+        
+        // The begining index of elements that need to be updated.
+        int start = 0;
+        
+        // For each element, update to the furthest point the element could reach with minimum jump steps.
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = start + 1; j <= i + nums[i] && j < nums.length; j++) {
+                jumps[j] = jumps[i] + 1;
+            }
+            start = Math.max(i + nums[i], start);
+            if (i + nums[i] >= nums.length - 1) {
+                break;
+            }
+        }
+        
+        return jumps[nums.length - 1];
+    }
+}
 
-// Dynamic programming solution: Sequence DP.
+
+// Dynamic programming solution: Sequence DP. Time limit exceeded. 传统解法。。。
 public class Solution {
     public int jump(int[] nums) {
         // Step1: f[i]: The minimum number of jumps to reach the position i.
@@ -54,5 +78,4 @@ public class Solution {
     }
 }
 
-// Greedy solution.
 
