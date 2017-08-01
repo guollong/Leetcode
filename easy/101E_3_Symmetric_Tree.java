@@ -57,6 +57,7 @@ public class Solution {
     }
 }
 
+// Iterative method.
 // Solution 2: DFS: Using stack. Iniitially, push the left and right child of the root to the stack. 
 //      After that, every time pop two nodes from stack and check whether they are the same, at the 
 //      same time push the left child of the left node into the stack, push the right child of the 
@@ -108,3 +109,53 @@ public class Solution {
         return false;
     }
 }
+
+// Iterative method.
+// Solution 3: BFS: Using queue. The idea is the same as the DFS implementation. 
+public class Solution {
+    private Queue<TreeNode> queue = new LinkedList<>();
+    
+    public boolean isSymmetric(TreeNode root) {
+        // corner case.
+        if (root == null) {
+            return true;
+        }
+        
+        // Push the left and right child to the queue.
+        if (!pushChildrenSuccess(root.left, root.right)) {
+            return false;
+        }
+        
+        // Iterative part.
+        while (!queue.isEmpty()) {
+            TreeNode right = queue.poll();
+            TreeNode left = queue.poll();
+            
+            if (left.val != right.val) {
+                return false;
+            }
+            if (!pushChildrenSuccess(left.left, right.right)) {
+                return false;
+            }
+            if (!pushChildrenSuccess(left.right, right.left)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    private boolean pushChildrenSuccess(TreeNode node1, TreeNode node2) {
+        if (node1 == null && node2 == null) {
+            return true;
+        }
+        if (node1 != null && node2 != null) {
+            queue.offer(node1);
+            queue.offer(node2);
+            return true;
+        }
+        return false;
+    }
+}
+
+
+
