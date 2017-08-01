@@ -44,20 +44,12 @@ public class Solution {
         for (int i = 0; i < row * column; i++) {
             parent[i] = i;
         }
-        
-        // Initialization: the initial number of components are the number of "1"s.
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-                if (grid[i][j] == '1') {
-                    count++;
-                }
-            }
-        }
             
         // For each land, build union with its nearby lands.
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
                 if (grid[i][j] == '1') {
+                	count++;
                     int index = i * column + j;
                     if (i > 0 && grid[i - 1][j] == '1') {
                         union(index, (i - 1) * column + j);
