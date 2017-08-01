@@ -30,6 +30,7 @@
 
 // Solution 1: weighted quick union and path compression.
 // Be careful of the initialization of count and the way to perform union operations.
+// n个人最多形成n个朋友圈，所以count初始化为n。
 public class Solution {
     
     // The index of the parent of each element.
@@ -54,6 +55,7 @@ public class Solution {
         }
         count = length;
         
+        // Because the friendship matrix is a symmetric matrix, we only need to perform union operations on half of the matrix.
         for (int i = 0; i < length - 1; i++) {
             for (int j = i + 1; j < length; j++) {
                 if (M[i][j] == 1) {
@@ -95,7 +97,7 @@ public class Solution {
 }
 
 
-// Solution 3: BFS OR DFS.
+// Solution 2: DFS.
 
 
 

@@ -28,7 +28,6 @@
  */
 
 // Solution 1: weighted quick union with path compression.
-// Solution 1: weighted quick union with path compression.
 public class Solution {
     private int[] parent;
     private int[] size;
@@ -137,7 +136,7 @@ public class Solution {
     }
 }
 
-// Solution 3: BFS OR DFS.
+// Solution 3: BFS and DFS.
 
 
 

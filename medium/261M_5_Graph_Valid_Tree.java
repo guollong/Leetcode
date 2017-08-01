@@ -21,6 +21,8 @@
  */
 
 // Solution 1: weighted quick union with path compression.
+// Graph valid tree: Finally, there should be only one component and while looping over the edges. And there exists a circle if two 
+//		elements have same root.
 public class Solution {
     private int[] parent;
     private int[] size;
@@ -124,7 +126,7 @@ public class Solution {
     }
 }
 
-// Solution 3: BFS OR DFS.
+// Solution 3: BFS and DFS.
 
 
 

@@ -24,7 +24,11 @@
  * Create Date: 07/31/2017
  */
 
-// Solution 1: Union find. Could not figure it out.
+// Solution 1: BFS.
 
 
-// Solution 3: BFS OR DFS.
+
+// Solution 2: Union find. Could not figure it out.
+
+
+
