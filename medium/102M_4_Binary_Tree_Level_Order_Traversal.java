@@ -21,6 +21,7 @@
 /**
  * Progress...
  * Create Date: 06/28/2017
+ * Update Date: 08/02/2017
  */
 
 /**
@@ -33,7 +34,7 @@
  * }
  */
 
-// Idea: Take the size of queue to get the number of nodes in that level.
+// Solution 1: BFS.
 public class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
@@ -63,4 +64,31 @@ public class Solution {
         return result;
     }
 }
+
+// Solution 2: DFS.
+public class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        levelOrderHelper(result, root, 0);
+        return result;
+    }
+    
+    private void levelOrderHelper(List<List<Integer>> result, TreeNode root, int height) {
+        // base case.
+        if (root == null) {
+            return;
+        }
+        
+        // recursive case.
+        if (height >= result.size()) {
+            result.add(new ArrayList<Integer>());
+        }
+        result.get(height).add(root.val);
+        levelOrderHelper(result, root.left, height + 1);
+        levelOrderHelper(result, root.right, height + 1);
+    }
+}
+
+
+
 
