@@ -21,6 +21,7 @@
 /**
  * Progress...
  * Create Date: 07/01/2017
+ * Update Date: 08/02/2017
  */
 
 /**
@@ -33,27 +34,30 @@
  * }
  */
 
-// Solution 1: 屡试不爽的level order traversal。。。
+// Solution 1: 屡试不爽的level order traversal。。。BFS
 public class Solution {
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
+        
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
+        
         while (!queue.isEmpty()) {
+            
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                TreeNode temp = queue.poll();
-                if (i == size - 1) {
-                    result.add(temp.val);
+                TreeNode node = queue.poll();
+                if (i == 0) {
+                    result.add(node.val);
                 }
-                if (temp.left != null) {
-                    queue.offer(temp.left);
+                if (node.right != null) {
+                    queue.offer(node.right);
                 }
-                if (temp.right != null) {
-                    queue.offer(temp.right);
+                if (node.left != null) {
+                    queue.offer(node.left);
                 }
             }
         }
@@ -61,28 +65,27 @@ public class Solution {
     }
 }
 
-// Solution 2: Recursive method.
-// The core idea of this algorithm:
-// 1. Each depth of the tree only select one node. So recursively call right node first.
-// 2. View depth is current size of result list.
+// Solution: DFS.
 public class Solution {
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> result = new ArrayList<Integer>();
-        rightView(root, result, 0);
+        rightView(result, root, 0);
         return result;
     }
     
-    public void rightView(TreeNode curr, List<Integer> result, int currDepth){
+    public void rightView(List<Integer> result, TreeNode curr, int currDepth) {
+        // base case.
         if (curr == null) {
             return;
         }
+        
+        // recursive case.
+        // result.size() represents for the level of the tree.
         if (currDepth == result.size()) {
             result.add(curr.val);
         }
-        
-        rightView(curr.right, result, currDepth + 1);
-        rightView(curr.left, result, currDepth + 1);
-        
+        rightView(result, curr.right, currDepth + 1);
+        rightView(result, curr.left, currDepth + 1);
     }
 }
 
