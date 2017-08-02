@@ -102,4 +102,103 @@ public class Solution {
     }
 }
 
+// Solution 2: DFS: For each island, use DFS to mark all 1s to 0s. (Recursion)
+public class Solution {
+    private int row;
+    private int column;
+
+    public int numIslands(char[][] grid) {
+        if (grid == null || grid.length == 0) {
+            return 0;
+        }
+        
+        int count = 0;
+        row = grid.length;
+        column = grid[0].length;
+        
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                if (grid[i][j] == '1') {
+                    DFSMarking(grid, i, j);
+                    count++;
+                }
+            }
+        }    
+        return count;
+    }
+
+    // Mark '1's belongs to on region to all '0's.
+    private void DFSMarking(char[][] grid, int i, int j) {
+        if (i < 0 || j < 0 || i >= row || j >= column || grid[i][j] == '0') {
+            return;
+        }
+        grid[i][j] = '0';
+        DFSMarking(grid, i + 1, j);
+        DFSMarking(grid, i - 1, j);
+        DFSMarking(grid, i, j + 1);
+        DFSMarking(grid, i, j - 1);
+    }
+}
+
+
+// Solution 3: BFS: For each island, use BFS to mark all 1s to 0s. (Iterative)
+public class Solution {
+    
+    private int row;
+    private int column;
+    
+    public int numIslands(char[][] grid) {
+        int count = 0;
+        if (grid == null || grid.length == 0) {
+            return 0;
+        }
+        row = grid.length;
+        column = grid[0].length;
+        
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                if (grid[i][j] == '1'){
+                    bfsFill(grid, i, j);
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+    private void bfsFill(char[][] grid,int x, int y) {
+        grid[x][y] = '0';
+        
+        LinkedList<Integer> queue = new LinkedList<Integer>();  
+        int code = x * column + y;  
+        queue.offer(code);
+        
+        while (!queue.isEmpty()) {  
+            code = queue.poll();  
+            int i = code / column;  
+            int j = code % column;  
+            if (i > 0 && grid[i - 1][j] == '1') {
+                //search upward and mark adjacent '1's as '0'.
+                queue.offer((i - 1) * column + j);  
+                grid[i - 1][j] = '0';  
+            }  
+            if (i < row - 1 && grid[i + 1][j] == '1') {
+                //search downward and mark adjacent '1's as '0'.
+                queue.offer((i + 1) * column + j);  
+                grid[i + 1][j] = '0';  
+            }  
+            if (j > 0 && grid[i][j - 1] == '1') {  
+                //search leftward and mark adjacent '1's as '0'.
+                queue.offer(i * column + j - 1);  
+                grid[i][j - 1] = '0';  
+            }  
+            if (j < column - 1 && grid[i][j + 1] == '1') {  
+                //search rightward and mark adjacent '1's as '0'.
+                queue.offer(i * column + j + 1);  
+                grid[i][j + 1] = '0';  
+            }
+        }
+    }
+}
+
+
 
