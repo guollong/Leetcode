@@ -37,7 +37,7 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
-// Solution 1: Recursive method.
+// Solution 1: Recursive method. It is also a BFS implementation.
 public class Solution {
     public boolean isSymmetric(TreeNode root) {
         if (root == null) {
