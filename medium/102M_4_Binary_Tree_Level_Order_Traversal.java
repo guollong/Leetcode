@@ -80,7 +80,7 @@ public class Solution {
         }
         
         // recursive case.
-        if (height >= result.size()) {
+        if (height == result.size()) {
             result.add(new ArrayList<Integer>());
         }
         result.get(height).add(root.val);
