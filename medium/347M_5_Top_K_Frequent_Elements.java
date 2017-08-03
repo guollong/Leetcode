@@ -126,7 +126,7 @@ public class Solution {
         
         PriorityQueue<HeapNode> heap = new PriorityQueue<>();
         for (int number : map.keySet()) {
-            int inversefreq = maxCount - map.get(number);
+            int inversefreq = - map.get(number);
             HeapNode node = new HeapNode(inversefreq, number);
             heap.offer(node);
         }
