@@ -12,6 +12,7 @@
 /**
  * Progress...
  * Create Date: 06/09/2017
+ * Update Date: 08/03/2017
  */
 
 // Solution 1: use built-in api.
@@ -24,15 +25,21 @@ public class Solution {
 // Solution 2: not use built-in api.
 public class Solution {
     public int strStr(String haystack, String needle) {
-        if (needle.length() > haystack.length()) {
+        // corner case.
+        if (haystack.length() < needle.length()) {
             return -1;
         }
+        if (needle.equals("")) {
+            return 0;
+        }
+        
         int length = needle.length();
-        for (int i = 0; i < haystack.length() - needle.length() + 1; i++) {
-            if (needle.equals(haystack.substring(i, i + length))) {
+        for (int i = 0; i <= haystack.length() - length; i++) {
+            if (haystack.substring(i, i + length).equals(needle)) {
                 return i;
             }
         }
+        // not found.
         return -1;
     }
 }
