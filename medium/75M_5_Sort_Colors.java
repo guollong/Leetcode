@@ -19,6 +19,7 @@
 /**
  * Progress...
  * Create Date: 07/12/2017
+ * Update Date: 08/03/2017
  */
 
 // Two pass: Get the number of 0s, 1s and 2s in the first pass and update the array in the second pass.
@@ -55,6 +56,7 @@ public class Solution {
         int length = nums.length;
         int front = 0;
         int end = length - 1;
+        // Please attention the end condition.
         for (int i = 0; i <= end; i++) {
             if (nums[i] == 0) {
                 swap(nums, i, front);
