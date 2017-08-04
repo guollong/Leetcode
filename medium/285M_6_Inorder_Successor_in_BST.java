@@ -9,7 +9,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Medium; 
- * Company: . 
+ * Company: Pocket Gems, Microsoft, Facebook. 
  */
 
 /**
@@ -26,6 +26,7 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+
 // Solution 1: Interative method: 
 //      Just like a binary search. Only update the successor while going left since the parent is always 
 //      greater than left child, so the parent could be a successor.
