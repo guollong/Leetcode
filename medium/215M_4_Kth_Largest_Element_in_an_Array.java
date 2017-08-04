@@ -17,6 +17,7 @@
 /**
  * Progress...
  * Create Date: 06/26/2017
+ * Update Date: 08/03/2017
  */
 
 // Solution 1: simply sort and take the element.
@@ -54,38 +55,43 @@ public class Solution {
         int high = nums.length - 1;
         while (low < high) {
             int j = partition(nums, low, high);
-            if (j < k) {
-                low = j + 1;
+            if (j == k) {
+                break;
             } else if (j > k) {
                 high = j - 1;
             } else {
-                break;
+                low = j + 1;
             }
         }
         return nums[k];
     }
     
     // Take the first element as the pivot, and perform partition, let all elements less than
-    // the pivot in the left and greater than the pivot in the right.
-    private int partition(int[] a, int low, int high) {
-        int i = low;
-        int j = high + 1;
+    // the pivot in the left and greater than the pivot in the right, finally return the parition position.
+    private int partition(int[] nums, int low, int high) {
+        int i = low + 1;
+        int j = high;
+        // Attention the while condition is not "i < j".
         while (true) {
-            while (i < high && a[++i] < a[low]);
-            while (j > low && a[low] < a[--j]);
+            while (i <= high && nums[i] <= nums[low]) {
+                i++;
+            }
+            while (j >= low && nums[j] > nums[low]) {
+                j--;
+            }
             if (i >= j) {
                 break;
             }
-            exch(a, i, j);
+            swap(nums, i, j);
         }
-        exch(a, low, j);
+        swap(nums, j, low);
         return j;
     }
-
-    private void exch(int[] a, int i, int j) {
-        final int tmp = a[i];
-        a[i] = a[j];
-        a[j] = tmp;
+    
+    private void swap(int[] nums, int index1, int index2) {
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
     }
 }
 
