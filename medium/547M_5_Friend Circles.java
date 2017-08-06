@@ -9,8 +9,8 @@
  *		And you have to output the total number of friend circles among all the students.
  * 
  * Example 1: Input: [[1,1,0],
- *				      [1,1,0],
- *					  [0,0,1]], Output: 2
+ *                    [1,1,0],
+ *                    [0,0,1]], Output: 2
  * Explanation:The 0th and 1st students are direct friends, so they are in a friend circle. The 2nd student 
  *		himself is in a friend circle. So return 2.
  * 
