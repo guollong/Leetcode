@@ -8,7 +8,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Medium; 
- * Company: . 
+ * Company: LinkedIn, Pocket Gems. 
  */
 
 /**
