@@ -6,8 +6,10 @@
  * 
  * Note: You are not suppose to use the library's sort function for this problem.
  * 
- * Follow up: A rather straight forward solution is a two-pass algorithm using counting sort.
+ * Follow up: 
+ *  A rather straight forward solution is a two-pass algorithm using counting sort.
  *		Could you come up with an one-pass algorithm using only constant space?
+ *  Sort more colors ??
  */
 
 /**
@@ -77,6 +79,45 @@ public class Solution {
     	nums[index2] = temp;
     }
 }
+
+// Follow up: Sort four colors.
+public class Solution {
+    
+    private int indexFront;
+    private int indexRear;
+    
+    public void sortColors(int[] nums) {
+        indexFront = 0;
+        indexRear = nums.length - 1;
+        int n = 4;
+        for (int i = 0; i < n / 2; i++) {
+            sortColorsHelper(nums, i, n - i - 1);
+            indexFront++;
+            indexRear--;
+        }
+    }
+    
+    private void sortColorsHelper(int[] nums, int value1, int value2) {
+        // Move all value1's to the front of the array and move all value2's to the end of the array.
+        for (int i = indexFront; i <= indexRear; i++) {
+            if (nums[i] == value1) {
+                swap(nums, i, indexFront);
+                indexFront++;
+            } else if (nums[i] == value2) {
+                swap(nums, i, indexRear);
+                indexRear--;
+                i--;
+            }
+        }
+    }
+    
+    private void swap(int[] nums, int index1, int index2) {
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
+    }
+}
+
 
 
 
