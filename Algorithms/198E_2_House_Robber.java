@@ -43,7 +43,7 @@ public class Solution {
     }
 }
 
-// Solution with explanation. (This version is not easy to make mistakes.)
+// Solution 2: improved dynamic programming (constant space complexity)
 public class Solution {
     public int rob(int[] nums) {
 	    int ifRobbedPrevious = 0; 	// max money can get if rob current house
@@ -65,7 +65,7 @@ public class Solution {
 	}
 }
 
-// Simpler solution.
+// Solution 3: improved dynamic programming (Simpler solution of solution 2).
 public class Solution {
     public int rob(int[] num) {
         int prevNo = 0;
