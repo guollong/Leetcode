@@ -17,21 +17,39 @@
 /**
  * Progress...
  * Create Date: 06/04/2017
+ * Update Date: 08/19/2017
  */
 
-// Dynamic programming. Could I say the idea of dynamic programming is much similiar to recursion??
-// They are all split the problem into sub problems. DP takes the result of previous computation and 
-// could save lots of time. 认识还不够。。。。。。。。。。。。。。。。
-
-// 该题目思路错误，time limit exceeded.。。。。。。。。。。。。。。。。
+// Dynamic programming.
+public class Solution {
+    public int rob(int[] num) {
+        // base case;
+        if (num == null || num.length == 0) {
+            return 0;
+        } else if (num.length == 1) {
+            return num[0];
+        }
+        
+        // Initialization.
+        int[] dp = new int[num.length];
+        dp[0] = num[0];
+        dp[1] = Math.max(num[0], num[1]);
+        
+        // Function.
+        for (int i = 2; i < num.length; i++) {
+            dp[i] = Math.max(dp[i - 1], dp[i - 2] + num[i]);
+        }
+        return dp[num.length - 1];
+    }
+}
 
 // Solution with explanation. (This version is not easy to make mistakes.)
 public class Solution {
     public int rob(int[] nums) {
-		int ifRobbedPrevious = 0; 	// max monney can get if rob current house
+	    int ifRobbedPrevious = 0; 	// max money can get if rob current house
 	    int ifDidntRobPrevious = 0; // max money can get if not rob current house
 	    
-	    for(int i=0; i < nums.length; i++) 
+	    for(int i = 0; i < nums.length; i++) 
 	    {
 	    	// If we rob current cell, previous cell shouldn't be robbed. So, add the current value to previous one.
 	        int currRobbed = ifDidntRobPrevious + nums[i];
@@ -58,29 +76,6 @@ public class Solution {
             prevYes = n + temp;
         }
         return Math.max(prevNo, prevYes);
-    }
-}
-
-
-// Recursive time limit exceeded version.
-public class Solution {
-    public int rob(int[] nums) {
-        return robHelper(nums, 0, nums.length - 1);
-    }
-    
-    private int robHelper(int[] nums, int start, int end) {
-        // base case: 
-        if (start == end) {
-            return nums[start];
-        }
-        if (end - start == 1) {
-            return Math.max(nums[start], nums[end]);
-        }
-        if (start > end) {
-            return 0;
-        }
-        // recursive case.
-        return Math.max(nums[start] + robHelper(nums, start + 2, end), robHelper(nums, start + 1, end));
     }
 }
 
