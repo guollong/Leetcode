@@ -1,20 +1,16 @@
 /**
- * Question description: Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
- *		If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).
+ * Question description: Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.
  * 
- * Note: The replacement must be in-place, do not allocate extra memory.
- * 
- * Examples: 
- *	1,2,3 → 1,3,2
- *	3,2,1 → 1,2,3
- *	1,1,5 → 1,5,1
- *
+ * Note: The length of both num1 and num2 is < 110.
+ *	  Both num1 and num2 contains only digits 0-9.
+ *	  Both num1 and num2 does not contain any leading zero.
+ *	  You must not use any built-in BigInteger library or convert the inputs to integer directly.
  */
 
 /**
  * Author: Jinglong Guo
  * Difficulty: Medium; 
- * Company: .
+ * Company: Facebook, Twitter.
  */
 
 /**

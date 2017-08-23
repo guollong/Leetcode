@@ -7,7 +7,7 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Medium; 
- * Company: .
+ * Company: Snapchat, Uber, Apple.
  */
 
 /**
