@@ -53,7 +53,7 @@ public class Solution {
             } else if (mapTemplate.get(c) == 1) {
                 mapTemplate.remove(c);
             } else {
-                mapTemplate.	(c, mapTemplate.get(c) - 1);
+                mapTemplate.put(c, mapTemplate.get(c) - 1);
             }
         }
         return true;
