@@ -21,6 +21,7 @@
 /**
  * Progress...
  * Create Date: 06/01/2017
+ * Update Date: 08/27/2017
  */
 
 public class Solution {
@@ -30,14 +31,14 @@ public class Solution {
         for (int i = 0; i < list1.length; i++) {
             map.put(list1[i], i);
         }
+        
         int minSum = Integer.MAX_VALUE;
         for (int i = 0; i < list2.length; i++) {
             if (map.containsKey(list2[i])) {
                 if (i + map.get(list2[i]) < minSum) {
                     minSum = i + map.get(list2[i]);
-                    List<String> temp = new ArrayList<>();
-                    temp.add(list2[i]);
-                    result = temp;
+                    result.clear();
+                    result.add(list2[i]);
                 } else if (i + map.get(list2[i]) == minSum) {
                     result.add(list2[i]);
                 }
