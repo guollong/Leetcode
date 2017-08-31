@@ -19,27 +19,6 @@
  */
 
 // Idea: Loop over the nums2 array, for each element, find the insertion index in the nums1 array.
-public class Solution {
-    public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int index1 = 0;
-        int index2 = 0;
-        for ( ;index2 < n; index2++) {
-            // find the insertion index.
-            while (index1 < m + index2 && nums2[index2] > nums1[index1]) {
-                index1++;
-            }
-            // move elements that greater than the insertion element and leave a blank space for the insertion element.
-            int i = m + index2 - 1;
-            while (i >= index1) {
-                nums1[i + 1] = nums1[i];
-                i--;
-            }
-            nums1[index1] = nums2[index2];
-        }
-    }
-}
-
-// Update version: easier to understand.
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int insertIndex = 0;
@@ -64,3 +43,24 @@ class Solution {
         }
     }
 }
+
+// Improved version:
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        while (m > 0 && n > 0) {
+            if (nums1[m - 1] > nums2[n - 1]) {
+                nums1[m + n - 1] = nums1[m - 1];
+                m--;
+            } else {
+                nums1[m + n - 1] = nums2[n - 1];
+                n--;
+            }
+        }
+        while (n > 0) {
+            nums1[n - 1] = nums2[n - 1];
+            n--;
+        }
+    }
+}
+
+
