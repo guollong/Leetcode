@@ -15,6 +15,7 @@
 /**
  * Progress...
  * Create Date: 06/11/2017
+ * Update Date: 08/30/2017
  */
 
 // Idea: Loop over the nums2 array, for each element, find the insertion index in the nums1 array.
@@ -38,3 +39,28 @@ public class Solution {
     }
 }
 
+// Update version: easier to understand.
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int insertIndex = 0;
+        for (int i = 0; i < n; i++) {
+            int j = insertIndex;
+            // Find the position that the nums2[i] should be inserted.
+            for (; j < m + i; j++) {
+                if (nums2[i] < nums1[j]) {
+                    break;
+                }
+            }
+            
+            shift(nums1, j, m + i);
+            nums1[j] = nums2[i];
+            insertIndex = j + 1;
+        }
+    }
+    
+    private void shift(int[] nums, int start, int total) {
+        for (int i = total; i > start; i--) {
+            nums[i] = nums[i - 1];
+        }
+    }
+}
