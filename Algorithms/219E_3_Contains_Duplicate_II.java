@@ -16,19 +16,20 @@
  */
 
 // Solution 1: Use hashmap to record the index of element.
-public class Solution {
+class Solution {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
+        
+        Map<Integer, Integer> indices = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(nums[i])) {
-                if (map.get(nums[i]) + k >= i) {
+            if (indices.containsKey(nums[i])) {
+                if (indices.get(nums[i]) + k >= i) {
                     return true;
-                } else {
-                    map.put(nums[i], i);
                 }
-            } else {
-                map.put(nums[i], i);
             }
+            indices.put(nums[i], i);
         }
         return false;
     }
