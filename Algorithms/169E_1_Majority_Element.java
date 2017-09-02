@@ -14,6 +14,8 @@
 
 // Approach 1: Boyer–Moore majority vote algorithm. It is an algorithm for finding 
 //      the majority of a sequence of elements using linear time and constant space.
+// Idea: the main point of this algorithm is that for each count == 0, we consume the same number of majority element 
+//      and non-majority element, so the last return value will be the result.
 // step1: If the counter is 0, we set the current candidate to e and we set the counter to 1.
 // step2: If the counter is not 0, we increment or decrement the counter according to whether e is the current candidate.
 public class Solution{
