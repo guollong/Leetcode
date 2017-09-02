@@ -10,6 +10,7 @@
  * Company: Adobe, Zenefits.
  * Create Date: 03/25/2017
  * Update date: 05/31/2017
+ * Update date: 09/01/2017
  */
 
 // Boyer–Moore majority vote algorithm: https://gregable.com/2013/10/majority-vote-algorithm-find-majority.html
@@ -21,13 +22,13 @@
 // step2: If the counter is not 0, we increment or decrement the counter according to whether e is the current candidate.
 public class Solution{
     public int majorityElement(int[] nums) {
-        int count = 0, returnValue = 0;
+        int count = 0, returnValue = nums[0];
         for (int num : nums) {
-            if (count == 0) {
+            if (num == returnValue) {
+                count++;
+            } else if (count == 0) {
                 returnValue = num;
                 count = 1;
-            } else if (num == returnValue){
-                count++;
             } else {
                 count--;
             }  
