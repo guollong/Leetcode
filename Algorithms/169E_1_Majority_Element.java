@@ -12,6 +12,7 @@
  * Update date: 05/31/2017
  */
 
+// Boyer–Moore majority vote algorithm: https://gregable.com/2013/10/majority-vote-algorithm-find-majority.html
 // Approach 1: Boyer–Moore majority vote algorithm. It is an algorithm for finding 
 //      the majority of a sequence of elements using linear time and constant space.
 // Idea: the main point of this algorithm is that for each count == 0, we consume the same number of majority element 
