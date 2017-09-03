@@ -20,6 +20,7 @@
 /**
  * Progress...
  * Create Date: 06/27/2017
+ * Update Date: 09/03/2017
  */
 
 // Idea: reverse each word seperately and finally reverse the whole string.
@@ -51,3 +52,34 @@ public class Solution {
     }
 }
 
+// Another version: reverse the whole string first and each word later.
+public class Solution {
+    public void reverseWords(char[] s) {
+        // reverse the whole array.
+        reverseWordsHelper(s, 0, s.length - 1);
+        
+        // reverse each word.
+        int start = 0;
+        int end = 0;
+        while (end < s.length) {
+            // find the boundary of a word. (start and end)
+            while (end < s.length && s[end] != ' ') {
+                end++;
+            }
+            reverseWordsHelper(s, start, end - 1);
+            start = end + 1;
+            end = end + 1;
+        }
+    }
+    
+    // reverse the element in the array between index1 and index2 (all inclusive).
+    private void reverseWordsHelper(char[] s, int start, int end) {
+        while (start < end) {
+            char temp = s[start];
+            s[start] = s[end];
+            s[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
