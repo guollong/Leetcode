@@ -43,7 +43,7 @@ public class Solution {
 // Solution 2: space complexity: O(n)
 class Solution {
     public boolean isStrobogrammatic(String num) {
-        List<Character> stroboChar = Arrays.asList('0','1', '6', '8', '9');
+        List<Character> stroboChar = new ArrayList<Character>(Arrays.asList('0','1', '6', '8', '9'));
         StringBuilder strobo = new StringBuilder();
         for (int i = 0; i < num.length(); i++) {
             if (!stroboChar.contains(num.charAt(i))) {
