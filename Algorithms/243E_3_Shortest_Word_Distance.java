@@ -39,7 +39,24 @@ class Solution {
     }
 }
 
-// Simpler version. 
+// Simpler version 1.
+public class Solution {
+    public int shortestWordDistance(String[] words, String word1, String word2) {
+        int index = -1;
+        int min = words.length;
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].equals(word1) || words[i].equals(word2)) {
+                if (index != -1 && !words[index].equals(words[i])) {
+                    min = Math.min(i - index, min);
+                }
+                index = i;
+            }
+        }
+        return min;
+    }
+}
+
+// Simpler version 2.
 class Solution {
     public int shortestDistance(String[] words, String word1, String word2) {
         int index1 = -1;
