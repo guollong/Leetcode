@@ -44,7 +44,81 @@ class Solution {
     }
 }
 
-// Solution 2: 
+// Solution 2: Improved solution 1. (merge 2 for loops into one, and reduce the times of multiplications.)
+class Solution {
+    // merge sort of k arrays.
+    public int nthSuperUglyNumber(int n, int[] primes) {
+        int[] ugly = new int[n];
+        int[] pointers = new int[primes.length];
+        
+        // primes 个用于比较的元素。。。 
+        int[] val = new int[primes.length];
+        Arrays.fill(val, 1);
+        
+        // next ugly number.
+        int next = 1;
+        
+        for (int i = 0; i < n; i++) {
+            ugly[i] = next;
+            
+            next = Integer.MAX_VALUE;
+            for (int j = 0; j < primes.length; j++) {
+                // skip duplicate and avoid extra multiplication.
+                // 为了合并两个for循环，并且只有在必要的时候更新指针，减少了乘法的运算次数。
+                if (val[j] == ugly[i]) {
+                    val[j] = ugly[pointers[j]++] * primes[j];
+                }
+                // find next ugly number.
+                next = Math.min(next, val[j]);
+            }
+        }
+        
+        return ugly[n - 1];
+    }
+}
+
+
+// Solution 3: Use heap. (PriorityQueue). Time complexity: O(N * log(k))
+class Solution {
+    public int nthSuperUglyNumber(int n, int[] primes) {
+        int[] ugly = new int[n];
+        
+        PriorityQueue<Num> heap = new PriorityQueue<>();
+        for (int i = 0; i < primes.length; i++) {
+            heap.add(new Num(primes[i], 1, primes[i]));
+        }
+        ugly[0] = 1;
+        
+        for (int i = 1; i < n; i++) {
+            ugly[i] = heap.peek().val;
+            
+            while (heap.peek().val == ugly[i]) {
+                Num next = heap.poll();
+                heap.add(new Num(next.parent * ugly[next.pointer], next.pointer + 1, next.parent));
+            }
+        }
+        
+        return ugly[n - 1];
+    }
+    
+    private class Num implements Comparable<Num> {
+        int val;
+        int pointer;
+        int parent;
+        
+        public Num(int v, int p, int parent) {
+            val = v;
+            pointer = p;
+            this.parent = parent;
+        }
+        
+        @Override
+        public int compareTo(Num number) {
+            return val - number.val;
+        }
+    }
+}
+
 
 
 
