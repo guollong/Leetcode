@@ -14,43 +14,42 @@
 /**
  * Author: Jinglong Guo
  * Difficulty: Medium; 
- * Company: Microsoft.
+ * Company: Microsoft, Twitter.
  */
 
 /**
  * Progress...
  * Create Date: 07/05/2017
+ * Update Date: 09/12/2017
  */
 
 // Dynamic programming: Sequence DP: Running time complexity: O(n^2)
-public class Solution {
+class Solution {
     public int lengthOfLIS(int[] nums) {
-        if (nums.length == 0) {
+        // Corner case.
+        if (nums == null || nums.length == 0) {
             return 0;
         }
-        // State: f[i]表示前i个数字中以第i个结尾的LIS的长度 (注意是以i结尾)
+        
+        // State: dp[i]: The longest increasing subsequence up to index i and contains nums[i].
+        //      前i个数字中以第i个结尾的LIS的长度
         int[] dp = new int[nums.length];
+        Arrays.fill(dp, 1);
+        int result = 1;
         
-        // Initialization.
-        for (int i = 0; i < nums.length; i++) {
-            dp[i] = 1;
-        }
-        
-        // Function: f[i] = MAX{f[j]+1}, (j < i && a[j] <= a [i])
+        // Function: dp[i] = MAX{dp[j]+1}, (j < i && nums[j] < nums[i])
         for (int i = 1; i < nums.length; i++) {
+            int max = 1;
             for (int j = i - 1; j >= 0; j--) {
-                if (nums[j] < nums[i]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                if (nums[i] > nums[j]) {
+                    max = Math.max(max, dp[j] + 1);
                 }
             }
+            dp[i] = max;
+            result = Math.max(result, max);
         }
         
-        // Result: Get the length of longest increasing subsequence.
-        int maxLength = dp[0];
-        for (int i = 1; i < nums.length; i++) {
-            maxLength = Math.max(maxLength, dp[i]);
-        }
-        return maxLength;
+        return result;
     }
 }
 
@@ -63,6 +62,7 @@ public class Solution {
 
         for (int x : nums) {
             // Arrays.binarySearch: 如果它包含在数组中，则返回搜索键的索引；否则返回 (-(插入点) - 1) 
+            // Find the insertion index of a new coming element, if the element is greater than 
             int i = Arrays.binarySearch(dp, 0, len, x);
             if (i < 0) {
                 i = -(i + 1);
