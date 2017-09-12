@@ -11,6 +11,7 @@
  * Company: Google, Airbnb, Facebook, Twitter, Zenefits, Amazon, Microsoft, Bloomberg.
  * Create Date: 04/05/2017
  * Update date: 06/14/2017
+ * Update date: 09/12/2017
  */
 
 // General solution.
@@ -49,6 +50,29 @@ public class Solution {
                 stack.push('}');
             } else {
                 if (stack.isEmpty() || stack.pop() != c) {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+}
+
+// 09.12.2017 version.
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        List<Character> left = Arrays.asList(new Character[]{'{', '[', '('});
+        
+        for (char c : s.toCharArray()) {
+            if (left.contains(c)) {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                char top = stack.pop();
+                if ((c == '}' && top != '{') || (c == ']' && top != '[') || (c == ')' && top != '(')) {
                     return false;
                 }
             }
