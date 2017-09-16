@@ -19,45 +19,47 @@
  * Company: Bloomberg.
  */
 
-// Dynamic programming. Matrix DP.
+/**
+ * Progress...
+ * Create Date: 07/12/2017
+ * Update Date: 09/16/2017
+ */
 
-public class Solution {
+// Dynamic programming. Matrix DP.
+class Solution {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        // Step1: state: f[i][j] represents for the number of unique path from start to (i, j).
-        int row = obstacleGrid.length;
-        if (row == 0) {
+        // corner case.
+        if (obstacleGrid == null || obstacleGrid.length == 0) {
             return 0;
         }
-        int column = obstacleGrid[row- 1].length;  
-        int[][] paths = new int[row][column];
         
-        // Step2: Initialization.
-        for (int i = 0; i < row; i++) {
-            if (obstacleGrid[i][0] == 1) {
-                break;
-            }
-            paths[i][0] = 1;
+        // Initialization.
+        int row = obstacleGrid.length;
+        int column = obstacleGrid[0].length;
+        int[][] dp = new int[row][column];
+        int index = 0;
+        while (index < row && obstacleGrid[index][0] == 0) {
+            dp[index][0] = 1;
+            index++;
         }
-        for (int j = 0; j < column; j++) {
-            if (obstacleGrid[0][j] == 1) {
-                break;
-            }
-            paths[0][j] = 1;
+        index = 0;
+        while (index < column && obstacleGrid[0][index] == 0) {
+            dp[0][index] = 1;
+            index++;
         }
         
-        // Step3: function.
+        // Function.
         for (int i = 1; i < row; i++) {
             for (int j = 1; j < column; j++) {
                 if (obstacleGrid[i][j] == 1) {
-                    paths[i][j] = 0;
+                    dp[i][j] = 0;
                 } else {
-                    paths[i][j] = paths[i - 1][j] + paths[i][j - 1];
+                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
                 }
             }
         }
         
-        // Step4: result.
-        return paths[row - 1][column - 1];
+        return dp[row - 1][column - 1];
     }
 }
 
