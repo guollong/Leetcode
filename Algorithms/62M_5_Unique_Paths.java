@@ -15,19 +15,28 @@
  * Company: Bloomberg.
  */
 
+/**
+ * Progress...
+ * Create Date: 07/12/2017
+ * Update Date: 09/16/2017
+ */
+
 // Dynamic programming. Matrix DP.
 
 public class Solution {
     public int uniquePaths(int m, int n) {
+        // corner case.
+        if (m == 0 || n == 0) {
+            return 0;
+        }
+        
         // Step1: state: f[i][j] represents for the number of unique path from start to (i, j).
         int[][] paths = new int[m][n];
         
         // Step2: Initialization.
+        Arrays.fill(paths[0], 1);
         for (int i = 0; i < m; i++) {
             paths[i][0] = 1;
-        }
-        for (int j = 0; j < n; j++) {
-            paths[0][j] = 1;
         }
         
         // Step3: function.
