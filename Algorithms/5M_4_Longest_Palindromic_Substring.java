@@ -17,6 +17,7 @@
 /**
  * Progress...
  * Create Date: 06/19/2017
+ * Update Date: 09/14/2017 (Solve it by solution 1)
  */
 
 // Solution 1: Take the element i as the center, extend palindrome based on this element.
@@ -24,14 +25,13 @@ public class Solution {
     private int left = 0, maxLength = 0;
 
     public String longestPalindrome(String s) {
-    	int len = s.length();
-    	if (len < 2) {
-    	    return s;
-    	}
+    	if (s == null || s.length() == 0) {
+            return "";
+        }
     	
-        for (int i = 0; i < len - 1; i++) {
-         	extendPalindrome(s, i, i);   // assume odd length, try to extend Palindrome as possible
-         	extendPalindrome(s, i, i+1); // assume even length.
+        for (int i = 0; i < s.length(); i++) {
+         	extendPalindrome(s, i, i);      // assume odd length, try to extend Palindrome as possible
+         	extendPalindrome(s, i, i + 1);  // assume even length.
         }
         return s.substring(left, left + maxLength);
     }
