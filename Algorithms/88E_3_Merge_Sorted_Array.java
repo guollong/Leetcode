@@ -16,7 +16,28 @@
  * Progress...
  * Create Date: 06/11/2017
  * Update Date: 08/30/2017
+ * Update Date: 09/27/2017
  */
+
+// 09.27 Version.
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int pointer1 = 0;
+        
+        for (int i = 0; i < n; i++) {
+            // Find the insertion position.
+            while (pointer1 < m + i && nums2[i] > nums1[pointer1]) {
+                pointer1++;
+            }
+            
+            // move the elements after pointer1 one step back.
+            for (int j = m + i - 1; j >= pointer1; j--) {
+                nums1[j + 1] = nums1[j];
+            }
+            nums1[pointer1] = nums2[i];
+        }
+    }
+}
 
 // Idea: Loop over the nums2 array, for each element, find the insertion index in the nums1 array.
 class Solution {
