@@ -16,20 +16,34 @@
 /**
  * Progress...
  * Create Date: 06/03/2017
+ * Update Date: 10/22/2017
  */
 
-/**
- * Dynamic programming method idea:
- * (The first thing to solve DP problem is figuring out the format of sub problem.)
- * 1>. From original thinking, the sub problem could be maxSubArray(int A[], int i, int j). However,
- * 	   in this way, I can't find a way to divided the original problem into the sub problems.
- * 2>. So I change the format of the sub problem into something like: maxSubArray(int A[], int i), 
- * 	   which means the maxSubArray for A[0:i ] which must has A[i] as the end element. Now the connect
- *	   between the sub problem and the original one becomes clearer.
- */
+// Solution 1: Dynamic programming.
+class Solution {
+    public int maxSubArray(int[] nums) {
+        // State: dp[i]: the maximum subarray which ends with element i.
+        int[] dp = new int[nums.length];
+        
+        // Initialization.
+        System.arraycopy(nums, 0, dp, 0, nums.length);
+        
+        // Function.
+        int maxSum = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            dp[i] = dp[i - 1] < 0 ? nums[i] : (dp[i - 1] + nums[i]);
+            maxSum = Math.max(maxSum, dp[i]);
+        }
+        
+        return maxSum;
+    }
+}
+
+// Solution 2: Advanced dynamic programming. (Reduce space complexity)
 public static int maxSubArray(int[] A) {
     int maxSoFar = A[0];
     int maxEndingHere = A[0];
+    
     for (int i = 1; i < A.length; i++){
     	maxEndingHere = Math.max(maxEndingHere + A[i], A[i]);
     	maxSoFar = Math.max(maxSoFar, maxEndingHere);	
@@ -39,7 +53,7 @@ public static int maxSubArray(int[] A) {
 
 
 /**
- * Divide and conquer method.
+ * Solution 3: Divide and conquer method.
  * Step1: Select the middle element of the array. So the maximum subarray may contain that middle element or not.
  * Step 2.1: If the maximum subarray does not contain the middle element, then we can apply the same algorithm to
  *			 the the subarray to the left of the middle element and the subarray to the right of the middle element.
@@ -86,7 +100,7 @@ public class Solution {
 }
 
 
-// Time Limit Exceeded solution. O(n^2).
+// Brute force method: Time Limit Exceeded solution. O(n^2).
 public class Solution {
     public int maxSubArray(int[] nums) {
         // "i" is the number of elements in a subarray.
