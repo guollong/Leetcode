@@ -1,11 +1,13 @@
 /**
- * Question description: Given a linked list, remove the nth node from the end of list and return its head.
+ * Question description: Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), 
+ *      prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the 
+ *      duplicate one.
  * 
- * Example: Given linked list: 1->2->3->4->5, and n = 2.
- *		After removing the second node from the end, the linked list becomes 1->2->3->5.
+ * Note: You must not modify the array (assume the array is read only).
+ *       You must use only constant, O(1) extra space.
+ *       Your runtime complexity should be less than O(n2).
+ *       There is only one duplicate number in the array, but it could be repeated more than once.
  *
- * Note: Given n will always be valid.
- *		 Try to do this in one pass.
  */
 
 /**
@@ -17,6 +19,7 @@
 /**
  * Progress...
  * Create Date: 07/14/2017
+ * Update Date: 10/25/2017
  */
 
 // Solution 1: Linked List Cycle II. Use two pointers the fast and the slow. The fast one goes forward two steps 
@@ -28,9 +31,12 @@
 // Running time complexity: O(n)
 public class Solution {
     public int findDuplicate(int[] nums) {
+        // Corner case.
         if (nums.length <= 1) {
             return -1;
         }
+        
+        // Use slow and fast pointer to find the encounter points.
         int slow = nums[0];
         int fast = nums[nums[0]];
         while (slow != fast) {
@@ -38,6 +44,7 @@ public class Solution {
             fast = nums[nums[fast]];
         }
         
+        // Find the intersection point.
         fast = 0;
         while (fast != slow) {
             fast = nums[fast];
@@ -54,9 +61,11 @@ public class Solution {
 // Running time complexity: O(n * logn)
 public class Solution {
     public int findDuplicate(int[] nums) {
+        // Corner case.
         if (nums.length <= 1) {
             return -1;
         }
+        
         int low = 1;
         int high = nums.length - 1;
         int mid = 0, count = 0;
