@@ -27,7 +27,8 @@ public class Solution {
     
     public List<String> letterCombinations(String digits) {
     	List<String> result = new LinkedList<String>();
-    	if (digits.length() == 0) {
+        
+    	if (digits == null || digits.length() == 0) {
     	    return result;
     	}
     	combination("", digits, 0, result);
@@ -50,9 +51,11 @@ public class Solution {
 public class Solution {
     public List<String> letterCombinations(String digits) {
         LinkedList<String> result = new LinkedList<String>();
-        if (digits.length() == 0) {
+        
+        if (digits == null || digits.length() == 0) {
             return result;
         }
+        
         String[] mapping = new String[] {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         result.add("");
         for (int i = 0; i < digits.length(); i++){
