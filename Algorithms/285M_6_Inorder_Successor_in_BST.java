@@ -15,6 +15,7 @@
 /**
  * Progress...
  * Create Date: 08/03/2017
+ * Update Date: 10/25/2017
  */
 
 /**
@@ -27,7 +28,7 @@
  * }
  */
 
-// Solution 1: Interative method: 
+// Solution 1: Iterative method: 
 //      Just like a binary search. Only update the successor while going left since the parent is always 
 //      greater than left child, so the parent could be a successor.
 public class Solution {
