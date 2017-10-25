@@ -6,14 +6,14 @@
  * Author: Jinglong Guo
  * Difficulty: Easy; 
  * Company: Palantir, Airbnb.
- * Date: 03/02/2017
  */
 
 
 /**
  * Progress...
  * Create Date: 03/02/2017
- * Update Date 1: 05/30/2017
+ * Update Date: 05/30/2017
+ * Update Date: 10/25/2017
  */
 
 // Method 1: bit manipulation.
