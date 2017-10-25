@@ -15,11 +15,10 @@
 /**
  * Progress...
  * Create Date: 07/09/2017
+ * Update Date: 10/25/2017
  */
 
-// Bit manipulation.
-
-// Solution 1.
+// Solution 1: Bit manipulation.
 
 // First time number appear -> save it in "ones"
 // Second time -> clear "ones" but save it in "twos" for later check
