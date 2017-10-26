@@ -13,17 +13,18 @@
 /**
  * Progress...
  * Create Date: 07/12/2017
+ * Update Date: 10/25/2017
  */
 
 public class Solution {
     public void wiggleSort(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 1; i < nums.length; i++) {
             if (i % 2 == 1) {
                 if (nums[i - 1] > nums[i]) {
                     swap(nums, i, i - 1);
                 }
             } else {
-                if (i != 0 && nums[i - 1] < nums[i]) {
+                if (nums[i - 1] < nums[i]) {
                     swap(nums, i, i - 1);
                 }
             }
