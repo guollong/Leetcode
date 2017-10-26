@@ -9,6 +9,7 @@
  * Company: Amazon, LinkedIn, Apple, Microsoft.
  * Create Date: 03/29/2017
  * Update date: 06/05/2017
+ * Update date: 10/25/2017
  */
 
 /**
@@ -42,49 +43,34 @@ public class Solution {
     }
 }
 
-// Jinglong's solution.
-// 遍历两个list。
-public class Solution {
+// Jinglong's solution: Traverse two list.
+class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return l2;
-        }
-        if (l2 == null) {
-            return l1;
-        }
+        // Cannot determine the head of the list.
+        ListNode head = new ListNode(-1);
+        ListNode temp = head;
         
-        ListNode pointer1 = l1;
-        ListNode pointer2 = l2;
-        ListNode result;
-        if (l1.val > l2.val) {
-            result = l2;
-            pointer2 = pointer2.next;
-        } else {
-            result = l1;
-            pointer1 = pointer1.next;
-        }
-        ListNode temp = result;
-        while (pointer1 != null && pointer2 != null) {
-            if (pointer1.val > pointer2.val) {
-                temp.next = pointer2;
-                pointer2 = pointer2.next;
+        while (l1 != null || l2 != null) {
+            if (l1 == null) {
+                temp.next = l2;
+                break;
+            }
+            if (l2 == null) {
+                temp.next = l1;
+                break;
+            }
+            
+            if (l1.val <= l2.val) {
+                temp.next = l1;
+                l1 = l1.next;
             } else {
-                temp.next = pointer1;
-                pointer1 = pointer1.next;
+                temp.next = l2;
+                l2 = l2.next;
             }
             temp = temp.next;
         }
-        while (pointer1 != null) {
-            temp.next = pointer1;
-            pointer1 = pointer1.next;
-            temp = temp.next;
-        }
-        while (pointer2 != null) {
-            temp.next = pointer2;
-            pointer2 = pointer2.next;
-            temp = temp.next;
-        }
-        return result;
+        
+        return head.next;
     }
 }
 
