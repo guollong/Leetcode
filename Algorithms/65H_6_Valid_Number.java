@@ -2,10 +2,10 @@
  * Question description: Validate if a given string is numeric.
  * 
  * Examples: "0" => true
- *			 " 0.1 " => true
- *			 "abc" => false
- *			 "1 a" => false
- *			 "2e10" => true
+ *           " 0.1 " => true
+ *           "abc" => false
+ *           "1 a" => false
+ *           "2e10" => true
  */
 
 /**
@@ -17,12 +17,13 @@
 /**
  * Progress...
  * Create Date: 08/21/2017
+ * Update Date: 10/29/2017
  */
 
 // Idea: (validation condition)
-// 	1. If we see [0-9] we reset the number flags.
-// 	2. We can only see . if we didn't see e or ..
-// 	3. We can only see e if we didn't see e but we did see a number. We reset numberAfterE flag.
+//  1. If we see [0-9] we reset the number flags.
+//  2. We can only see . if we didn't see e or ..
+//  3. We can only see e if we didn't see e but we did see a number. We reset numberAfterE flag.
 //  4. We can only see + and - in the beginning and after an e
 //  5. any other character break the validation.
 class Solution {
