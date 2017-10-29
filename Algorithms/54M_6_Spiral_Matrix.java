@@ -57,16 +57,16 @@ public class Solution {
                 for (int j = colEnd; j >= colBegin; j --) {
                     res.add(matrix[rowEnd][j]);
                 }
+                rowEnd--;
             }
-            rowEnd--;
             
             if (colBegin <= colEnd) {
                 // Traver Up.
                 for (int j = rowEnd; j >= rowBegin; j --) {
                     res.add(matrix[j][colBegin]);
                 }
+                colBegin++;
             }
-            colBegin++;
         }
         
         return res;
