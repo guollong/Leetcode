@@ -26,6 +26,7 @@
  * Progress...
  * Create Date: 06/14/2017
  * Update Date: 08/01/2017
+ * Update Date: 10/29/2017
  */
 
 /**
@@ -58,7 +59,7 @@ public class Solution {
 }
 
 // Iterative method.
-// Solution 2: DFS: Using stack. Iniitially, push the left and right child of the root to the stack. 
+// Solution 2: DFS: Using stack. Initially, push the left and right child of the root to the stack. 
 //      After that, every time pop two nodes from stack and check whether they are the same, at the 
 //      same time push the left child of the left node into the stack, push the right child of the 
 //      right node to the stack, if one of these two nodes does not exist, return false, push the right 
@@ -72,7 +73,6 @@ public class Solution {
         if (root == null) {
             return true;
         }
-        
         
         // Push the left and right child to the stack.
         if (!pushChildrenSuccess(root.left, root.right)) {
