@@ -16,6 +16,7 @@
 /**
  * Progress...
  * Create Date: 06/25/2017
+ * Update Date: 10/29/2017
  */
 
 // Binary search.
@@ -37,6 +38,27 @@ public class Solution {
             return nums[start];
         }
         return nums[end];
+    }
+}
+
+// Simpler method.
+class Solution {
+    public int findMin(int[] nums) {
+        // We have assumption that the input array is not an empty array.
+        int start = 0;
+        int end = nums.length - 1;
+        
+        while (start < end) {
+            int mid = start + (end - start) / 2;
+            // The array is rotated and mid is in the first part of the rotated array.
+            if (nums[mid] > nums[end] && nums[mid] >= nums[start]) {
+                start = mid + 1;
+            } else {
+                end = mid;
+            }
+        }
+        
+        return nums[start];
     }
 }
 
